@@ -27,9 +27,56 @@
 }
 
 .side-video {
-  width: 200px;
-  height: 100px;
-  background-color: red;
+  width: 100%;
+  height: 105px;
+  display: grid;
+  grid-template-columns: 180px 1fr;
+}
+
+.side-video img{
+    width: 100%;
+    height: 100%;
+    object-fit:contain;
+    border-radius: 15px;
+}
+
+.side-video-content{
+    margin-left: 10px;
+}
+
+.side-video-title{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    font-weight: 500;
+    margin-bottom: 10px;
+    font-size: 15px;
+    line-height: 22px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.side-video-title p {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2; 
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin: 0; 
+  line-height: 22px; 
+  max-height: 44px;
+  width: calc(100% - 24px);
+}
+
+.side-video-info p{
+  font-size: 12px;
+  margin-bottom: 5px;
+  color: rgb(109, 109, 109);
+}
+
+.side-video-title img{
+    width: 20px;
+    cursor: pointer;
 }
 
 .video-title {
@@ -93,12 +140,23 @@
 .left-half button:hover {
   background-color: rgb(43, 43, 43);
 }
+.left-half button:active{
+    background-color: rgb(68, 68, 68);
+}
 
 .description {
   height: 110px;
   width: 100%;
-  background-color: brown;
+  background-color: rgb(241, 241, 241);
   border-radius: 10px;
+  padding: 10px 10px;
+  font-size: 14px;
+}
+.description .head{
+    font-weight: 500;
+}
+.description:active{
+    height: 200px;
 }
 
 .right-half {
@@ -107,7 +165,6 @@
   flex: 1;
   height: 50px;
   justify-content: right;
-  background-color: ;
 }
 .right-half img {
   width: 23px;
@@ -133,7 +190,10 @@
   border-bottom-left-radius: 15px;
 }
 .like:hover {
-  background-color: rgb(221, 221, 221);
+  background-color: rgb(228, 228, 228);
+}
+.like:active{
+    background-color: rgb(204, 204, 204);
 }
 .right-half .dislike {
   background-color: rgb(241, 241, 241);
@@ -148,7 +208,10 @@
   position: relative;
 }
 .dislike:hover {
-  background-color: rgb(221, 221, 221);
+  background-color: rgb(228, 228, 228);
+}
+.dislike:active{
+    background-color: rgb(204, 204, 204);
 }
 .right-half .dislike::before {
   content: "";
@@ -175,5 +238,8 @@
   margin-left: 10px;
 }
 .right-half .other-buttons:hover {
-  background-color: rgb(221, 221, 221);
+  background-color: rgb(228, 228, 228);
+}
+.right-half .other-buttons:active{
+    background-color: rgb(204, 204, 204);
 }
