@@ -1,106 +1,112 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+  <head>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap"
       rel="stylesheet"
     />
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
 
-    <link rel="stylesheet" href="styles/header.css">
-    <link rel="stylesheet" href="styles/videoPage.css">
-    <link rel="stylesheet" href="styles/generalVideo.css">
-</head>
-<body>
+    <link rel="stylesheet" href="styles/header.css" />
+    <link rel="stylesheet" href="styles/videoPage.css" />
+    <link rel="stylesheet" href="styles/generalVideo.css" />
+  </head>
+  <body>
     <header class="header">
-        <div class="left-section">
-          <img src="./pictures/icons/hamburger-menu.svg" class="hamburger-menu" />
-          <img src="./pictures/icons/youtube-logo.svg" class="youtube-logo" />
-        </div>
-        <div class="middle-section">
-          <input type="text" class="searchBox" placeholder="Search" />
-          <button class="search-button">
-            <img class="search-icon" src="./pictures/icons/search.svg" />
-            <div class="tooltip">Search</div>
-          </button>
-          <button class="voice-button">
-            <img
-              class="voice-icon"
-              src="./pictures/icons/voice-search-icon.svg"
-            />
-            <div class="tooltip">Search with your voice</div>
-          </button>
-        </div>
-        <div class="right-section">
-          <div class="upload-icon-container">
-            <img src="./pictures/icons/upload.svg" class="upload-icon" />
-            <div class="tooltip">Create</div>
-          </div>
-          <div class="youtube-apps-container">
-            <img src="./pictures/icons/youtube-apps.svg" class="apps-icon" />
-            <div class="tooltip">YouTube apps</div>
-          </div>
-          <div class="notif-icon-container">
-            <img src="./pictures/icons/notifications.svg" class="notif-icon" />
-            <div class="notif-count">3</div>
-            <div class="tooltip">YouTube apps</div>
-          </div>
+      <div class="left-section">
+        <img src="./pictures/icons/hamburger-menu.svg" class="hamburger-menu" />
+        <img src="./pictures/icons/youtube-logo.svg" class="youtube-logo" />
+      </div>
+      <div class="middle-section">
+        <input type="text" class="searchBox" placeholder="Search" />
+        <button class="search-button">
+          <img class="search-icon" src="./pictures/icons/search.svg" />
+          <div class="tooltip">Search</div>
+        </button>
+        <button class="voice-button">
           <img
-            src="./pictures/profile-pic/my-channel.jpeg"
-            class="current-profile-pic"
+            class="voice-icon"
+            src="./pictures/icons/voice-search-icon.svg"
           />
+          <div class="tooltip">Search with your voice</div>
+        </button>
+      </div>
+      <div class="right-section">
+        <div class="upload-icon-container">
+          <img src="./pictures/icons/upload.svg" class="upload-icon" />
+          <div class="tooltip">Create</div>
         </div>
-      </header>
+        <div class="youtube-apps-container">
+          <img src="./pictures/icons/youtube-apps.svg" class="apps-icon" />
+          <div class="tooltip">YouTube apps</div>
+        </div>
+        <div class="notif-icon-container">
+          <img src="./pictures/icons/notifications.svg" class="notif-icon" />
+          <div class="notif-count">3</div>
+          <div class="tooltip">YouTube apps</div>
+        </div>
+        <img
+          src="./pictures/profile-pic/my-channel.jpeg"
+          class="current-profile-pic"
+        />
+      </div>
+    </header>
 
-      <main class="main">
-        <div class="content-container">
-            <div class="video">
+    <main class="main">
+      <div class="content-container">
+        <div class="video"></div>
+        <p class="video-title">
+          CAEDREL COMPLETELY LOSES IT OVER FNC VS G2 FINALS ENDING
+        </p>
+        <div class="video-options">
+          <div class="left-half">
+            <img src="./pictures/profile-pic/channel-1.jpeg" />
+            <div class="channel">
+              <p class="channel-name">Caedrel Clips</p>
+              <p class="channel-subs">89,9K subscribers</p>
             </div>
-            <p class="video-title">
-                CAEDREL COMPLETELY LOSES IT OVER FNC VS G2 FINALS ENDING
-            </p>
-            <div class="video-options">
-                <div class="left-half">
-                    <img src="./pictures/profile-pic/channel-1.jpeg">
-                    <div class="channel">
-                        <p class="channel-name">Caedrel Clips</p>
-                        <p class="channel-subs">89,9K subscribers</p>
-                    </div>
-                    <button>Subscribe</button>
-                </div>
-                <div class="right-half">
-                    <button>
-                        <div><img src="./pictures/icons/youtube-like.svg"></div>
-                        <div><p>6.4K</p></div>
-                    </button>
-                    
-                </div>
-            </div>
-            <div class="description">
+            <button>Subscribe</button>
+          </div>
+          <div class="right-half">
+            <button class="like">
+              <div><img src="./pictures/icons/youtube-like.svg" /></div>
+              <div><p>6.4K</p></div>
+            </button>
+            <button class="dislike">
+              <img src="./pictures/icons/youtube-dislike.svg" />
+            </button>
+            <button class="other-buttons">
+              <div><img src="./pictures/icons/youtube-share.svg" /></div>
+              <div><p>Share</p></div>
+            </button>
+            <button class="other-buttons">
+              <div><img src="./pictures/icons/youtube-download.svg" /></div>
+              <div><p>Download</p></div>
+            </button>
+            <button class="other-buttons">
+              <div><img src="./pictures/icons/youtube-save.svg" /></div>
+              <div><p>Save</p></div>
+            </button>
+            <button class="other-buttons">
+              <img src="./pictures/icons/youtube-dots.svg" />
+            </button>
+          </div>
+        </div>
+        <div class="description"></div>
+      </div>
 
-            </div>
-            
-        </div>
-    
-        <div class="videos-row">
-            <div class="side-video">
-            </div>
-            <div class="side-video">
-            </div>
-            <div class="side-video">
-            </div>
-            <div class="side-video">
-            </div>
-            <div class="side-video">
-            </div>
-            <div class="side-video">
-            </div>
-        </div>
-        
-      </main>
-</body>
+      <div class="videos-row">
+        <div class="side-video"></div>
+        <div class="side-video"></div>
+        <div class="side-video"></div>
+        <div class="side-video"></div>
+        <div class="side-video"></div>
+        <div class="side-video"></div>
+      </div>
+    </main>
+  </body>
 </html>
