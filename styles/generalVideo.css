@@ -10,8 +10,8 @@ body{
     padding-left: 110px;
     padding-right: 110px;
     height: 100%;
-    
 }
+
 @media(max-height:850px){
     body{
         transition: padding 0.05s ease;

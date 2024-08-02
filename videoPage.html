@@ -15,7 +15,53 @@
     <link rel="stylesheet" href="styles/videoPage.css" />
     <link rel="stylesheet" href="styles/generalVideo.css" />
   </head>
-  <body>
+  <body class="no-scroll">
+    <div class="overlay"></div>
+    <div class="sidebar-pop">
+      <nav class="sidebar-container">
+        <div class="sidebar-header">
+          <img src="./pictures/icons/hamburger-menu.svg">
+          <img src="./pictures/icons/youtube-logo.svg" class="youtube-logo">
+        </div>
+        <div class="container">
+          <div class="sidebar-thing">
+            <img src="./pictures/sidebar-icons/home.svg">
+            <p>Home</p>
+          </div>
+          <div class="sidebar-thing">
+            <img src="./pictures/sidebar-icons/subscriptions.svg">
+            <p>Subscriptions</p>
+          </div>
+        </div>
+        <div class="container">
+          <p class="you">You &gt;</p>
+          <div class="sidebar-thing">
+            <img src="./pictures/icons/your-channel.svg">
+            <p>Your channel</p>
+          </div>
+          <div class="sidebar-thing">
+            <img src="./pictures/icons/histoy.svg">
+            <p>Histoy</p>
+          </div>
+          <div class="sidebar-thing">
+            <img src="./pictures/icons/watch-later.svg">
+            <p>Watch later</p>
+          </div>
+          <div class="sidebar-thing">
+            <img src="./pictures/icons/youtube-like.svg">
+            <p>Liked videos</p>
+          </div>
+        </div>
+        <div class="container">
+          <p class="subs">Subscription</p>
+          <div class="profile">
+            <img src="./pictures/profile-pic/channel-3.jpeg">
+            <p>SniperWolfaaaaaaaaaaa</p>
+          </div>
+        </div>
+      </nav>
+    </div>
+
     <header class="header">
       <div class="left-section">
         <img src="./pictures/icons/hamburger-menu.svg" class="hamburger-menu" />
@@ -56,7 +102,7 @@
       </div>
     </header>
 
-    <main class="main">
+    <main class="main main-dark">
       <div class="content-container">
         <div class="video">
           <img src="./pictures/thumbnails/thumbnail-1.webp">
@@ -122,6 +168,8 @@
         </div>
       </div>
     </main>
+
     <footer class="foot"></footer>
+    <script src="script/videoPage.js" type="module"></script>
   </body>
 </html>
