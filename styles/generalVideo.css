@@ -9,8 +9,27 @@ body{
     padding-top: 80px;
     padding-left: 110px;
     padding-right: 110px;
-    height: 1000px;
+    height: 100%;
+    
 }
+@media(max-height:850px){
+    body{
+        transition: padding 0.05s;
+        padding-left: 160px;
+        padding-right: 160px;
+    }
+  }
+  
+@media(max-width:1600px){
+    
+    body{
+        transition: padding 0.05s;
+      padding-left: 10px;
+      padding-right: 10px;
+    }
+  }
+
+
 
 button{
     font-family: Roboto, Arial;
