@@ -14,16 +14,16 @@ body{
 }
 @media(max-height:850px){
     body{
-        transition: padding 0.05s;
+        transition: padding 0.05s ease;
         padding-left: 160px;
         padding-right: 160px;
     }
   }
-  
+
 @media(max-width:1600px){
     
     body{
-        transition: padding 0.05s;
+        transition: padding 0.05s ease;
       padding-left: 10px;
       padding-right: 10px;
     }
