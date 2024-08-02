@@ -7,6 +7,7 @@
   right: 1650px;
   z-index: 1200;
   display: none;
+  transition: left 0.5s ease;
 }
 
 .overlay {
@@ -28,8 +29,12 @@
   width: 25px;
   margin-right: 20px;
 }
-.sidebar-header .youtube-logo{
+.sidebar-header .side-youtube-logo{
   width: 90px;
+  cursor: pointer;
+}
+.sidebar-header .close-sidebar{
+  cursor: pointer;
 }
 
 .sidebar-container .sidebar-header{
