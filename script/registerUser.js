@@ -6,6 +6,10 @@ function saveUserInStorage(profile) {
   localStorage.setItem("users", JSON.stringify(profile));
 }
 
+function createUser(name,likedVideos,history,subbedChannels){
+  localStorage.setItem(`${name}`,JSON.stringify(likedVideos,history,subbedChannels))
+}
+
 document.querySelector(".sign-up").addEventListener("click", () => {
   getData();
 });
@@ -31,6 +35,7 @@ function getData() {
     profiles.push(profile)
 
     saveUserInStorage(profiles);
+
     document.querySelector(".username").value = "";
     document.querySelector(".password").value = "";
     document.querySelector(".password-check").value = "";

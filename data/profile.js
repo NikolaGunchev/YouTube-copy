@@ -10,6 +10,17 @@ class User{
       this.localStorageKey=localStorageKey
   }
 
+  likedVideos(){
+    return []
+  }
 
+  history(){
+    return []
+  }
+
+  subbedChannels(){
+    return []
+  }
 
 }
+
