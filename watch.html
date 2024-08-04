@@ -9,54 +9,60 @@
     />
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>watch</title>
 
     <link rel="stylesheet" href="styles/header.css" />
     <link rel="stylesheet" href="styles/videoPage.css" />
     <link rel="stylesheet" href="styles/generalVideo.css" />
-    <link rel="stylesheet" href="styles/videoPage-sidebar.css">
+    <link rel="stylesheet" href="styles/videoPage-sidebar.css" />
   </head>
   <body>
     <div class="overlay"></div>
     <div class="sidebar-pop">
       <nav class="sidebar-container">
         <div class="sidebar-header">
-          <img src="./pictures/icons/hamburger-menu.svg" class="close-sidebar">
-          <img src="./pictures/icons/youtube-logo.svg" class="side-youtube-logo">
+          <img
+            src="./pictures/icons/hamburger-menu.svg"
+            class="close-sidebar"
+          />
+          <img
+            src="./pictures/icons/youtube-logo.svg"
+            class="side-youtube-logo"
+          />
         </div>
         <div class="container">
           <div class="sidebar-thing">
-            <img src="./pictures/sidebar-icons/home.svg">
+            <img src="./pictures/sidebar-icons/home.svg" />
             <p>Home</p>
           </div>
           <div class="sidebar-thing">
-            <img src="./pictures/sidebar-icons/subscriptions.svg">
+            <img src="./pictures/sidebar-icons/subscriptions.svg" />
             <p>Subscriptions</p>
           </div>
         </div>
         <div class="container">
           <p class="you">You &gt;</p>
           <div class="sidebar-thing">
-            <img src="./pictures/icons/your-channel.svg">
+            <img src="./pictures/icons/your-channel.svg" />
             <p>Your channel</p>
           </div>
           <div class="sidebar-thing">
-            <img src="./pictures/icons/histoy.svg">
+            <img src="./pictures/icons/histoy.svg" />
             <p>Histoy</p>
           </div>
           <div class="sidebar-thing">
-            <img src="./pictures/icons/watch-later.svg">
+            <img src="./pictures/icons/watch-later.svg" />
             <p>Watch later</p>
           </div>
           <div class="sidebar-thing">
-            <img src="./pictures/icons/youtube-like.svg">
+            <img src="./pictures/icons/youtube-like.svg" />
             <p>Liked videos</p>
           </div>
         </div>
         <div class="container">
           <p class="subs">Subscription</p>
           <div class="profile">
-            <img src="./pictures/profile-pic/channel-3.jpeg">
+            <img src="./pictures/profile-pic/channel-3.jpeg" />
             <p>SniperWolfaaaaaaaaaaa</p>
           </div>
         </div>
@@ -66,7 +72,9 @@
     <header class="header">
       <div class="left-section">
         <img src="./pictures/icons/hamburger-menu.svg" class="hamburger-menu" />
-        <img src="./pictures/icons/youtube-logo.svg" class="youtube-logo" />
+        <a href="youtube.html"
+          ><img src="./pictures/icons/youtube-logo.svg" class="youtube-logo"
+        /></a>
       </div>
       <div class="middle-section">
         <input type="text" class="searchBox" placeholder="Search" />
@@ -104,69 +112,10 @@
     </header>
 
     <main class="main main-dark">
-      <div class="content-container">
-        <div class="video">
-          <img src="./pictures/thumbnails/thumbnail-1.webp">
-        </div>
-        <p class="video-title">
-          CAEDREL COMPLETELY LOSES IT OVER FNC VS G2 FINALS ENDING
-        </p>
-        <div class="video-options">
-          <div class="left-half">
-            <img src="./pictures/profile-pic/channel-1.jpeg" />
-            <div class="channel">
-              <p class="channel-name">Caedrel Clips</p>
-              <p class="channel-subs">89,9K subscribers</p>
-            </div>
-            <button>Subscribe</button>
-          </div>
-          <div class="right-half">
-            <button class="like">
-              <div><img src="./pictures/icons/youtube-like.svg" /></div>
-              <div><p>6.4K</p></div>
-            </button>
-            <button class="dislike">
-              <img src="./pictures/icons/youtube-dislike.svg" />
-            </button>
-            <button class="other-buttons">
-              <div><img src="./pictures/icons/youtube-share.svg" /></div>
-              <div><p>Share</p></div>
-            </button>
-            <button class="other-buttons">
-              <div><img src="./pictures/icons/youtube-download.svg" /></div>
-              <div><p>Download</p></div>
-            </button>
-            <button class="other-buttons">
-              <div><img src="./pictures/icons/youtube-save.svg" /></div>
-              <div><p>Save</p></div>
-            </button>
-            <button class="other-buttons">
-              <img src="./pictures/icons/youtube-dots.svg" />
-            </button>
-          </div>
-        </div>
-        <div class="description">
-          <p class="head">4.6M views 1 year ago</p>
-          <pre>
-            test
-          </pre>
-        </div>
+      <div class="content-container js-content-container">
       </div>
 
-      <div class="videos-row">
-        <div class="side-video">
-          <img src="./pictures/thumbnails/thumbnail-1.webp">
-          <div class="side-video-content">
-            <div class="side-video-title">
-              <p>Hot rocks in my bushcraft cot - winter camping in Alaska</p>
-              <img src="./pictures/icons/youtube-vertical-dots.svg">
-            </div>
-            <div class="side-video-info">
-              <p>Outdoor boys</p>
-              <p>8.2M views &#183; 1 year ago</p>
-            </div>
-          </div>
-        </div>
+      <div class="videos-row js-videos-row">
       </div>
     </main>
 

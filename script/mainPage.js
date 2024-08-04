@@ -1,13 +1,7 @@
-import { getVideo, videos } from "./data/videos.js";
+import { getVideo, videos } from "../data/videos.js";
+import { shuffleArray } from "./utils/shuffle.js";
 
 function renderPage() {
-  function shuffleArray(array) {
-    for (let i = array.length - 1; i > 0; i--) {
-      const j = Math.floor(Math.random() * (i + 1));
-      [array[i], array[j]] = [array[j], array[i]];
-    }
-  }
-
   let html = "";
   let videosCopy = videos;
   shuffleArray(videosCopy);
@@ -19,7 +13,7 @@ function renderPage() {
           <div class="image-box">
             <a
             class="video-link"
-            href="${matchingVideo.link}"
+            href="watch.html?videoId=${video.id}"
           >
           <img src="${matchingVideo.thumbnail}" class="thumbnail" />
           </a>
@@ -37,7 +31,7 @@ function renderPage() {
               <p class="video-title">
                 <a
                   class="video-link"
-                  href="${matchingVideo.link}"
+                  href="watch.html?videoId=${video.id}"
                 >
                   ${matchingVideo.title}
                 </a>
@@ -50,7 +44,11 @@ function renderPage() {
         `;
   });
 
-  document.querySelector(".video-grid").innerHTML = html;
+  document.querySelector(".js-video-grid").innerHTML = html;
+
+  document.querySelector(".hamburger-menu").addEventListener("click", () => {
+    changeSidebar()
+   });
 }
 renderPage();
 
@@ -69,7 +67,6 @@ function changeSidebar(){
       }
 }
 
-document.querySelector(".hamburger-menu").addEventListener("click", () => {
- changeSidebar()
-});
+
+
 
