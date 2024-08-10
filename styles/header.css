@@ -39,7 +39,7 @@
   flex: 1;
   margin-left: 70px;
   margin-right: 35px;
-  max-width: 500px;
+  max-width: 600px;
   display: flex;
   align-items: center;
 }
@@ -53,6 +53,8 @@
   box-shadow: inset 1px 2px 3px rgba(0, 0, 0, 0.05);
   font-size: 16px;
   width: 0;
+  border-top-left-radius: 20px;
+  border-bottom-left-radius: 20px;
 }
 .searchBox::placeholder{
   font-family: Roboto, Arial;
@@ -70,6 +72,8 @@
   margin-right: 10px;
   background-color: rgba(240, 240, 240, 0.658);
   cursor: pointer;
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;
 }
 
 .search-button, 
@@ -150,6 +154,7 @@
 .current-profile-pic{
   width: 32px;
   border-radius: 16px;
+  cursor: pointer;
 }
 
 .notif-count{
@@ -164,7 +169,73 @@
   font-family: Roboto, Arial;
 }
 
-.video-link{
-  text-decoration: none;
-  color: black;
+.profile{
+  display: block;
+  position: relative;
+}
+
+.name-popup{
+  position: absolute;
+  background-color: white;
+  box-shadow: 0px 0px 6px rgba(0,0,0,0.15);
+  bottom: -115px;
+  right:-10px;
+  height: 125x;
+  width:300px;
+  display: none;
+}
+
+.name-popup img{
+  width: 40px;
+}
+
+.name-popup-header{
+  margin: 15px;
+  display: flex;
+  column-gap: 20px;
+  align-items: center;
+  justify-content: left;
+}
+
+.border{
+  border-bottom:1px solid rgb(230, 230, 230) ;
+}
+
+.side-thing{
+  display: flex;
+  align-items: center;
+  padding: 10px 15px;
+  cursor: pointer;
+}
+.side-thing:hover{
+  background-color: rgb(233, 231, 231);
+}
+.side-thing:active{
+  background-color: rgb(206, 206, 206);;
+}
+
+.side-thing img{
+  width: 26px;
+  margin-right: 10px;
+}
+
+.profile-sign{
+  display: none;
+}
+.profile-sign button{
+color: blue;
+background-color: transparent;
+border-radius: 16px;
+padding: 7px 15px;
+font-size: 14px;
+border-color: gray;
+border-width: 1px;
+border-style: solid;
+cursor: pointer;
+}
+.profile-sign button:hover{
+  background-color: rgba(116, 172, 255, 0.281);
+}
+.profile-sign button:active{
+  background-color: rgba(57, 135, 253, 0.281);
 }

@@ -1,14 +1,4 @@
-function loadUsersFromStorage() {
-  return JSON.parse(localStorage.getItem("users")) || [];
-}
-
-function saveUserInStorage(profile) {
-  localStorage.setItem("users", JSON.stringify(profile));
-}
-
-function createUser(name,likedVideos,history,subbedChannels){
-  localStorage.setItem(`${name}`,JSON.stringify(likedVideos,history,subbedChannels))
-}
+import { users } from "./userData.js";
 
 document.querySelector(".sign-up").addEventListener("click", () => {
   getData();
@@ -18,31 +8,28 @@ function getData() {
   let userName = document.querySelector(".username").value;
   let password = document.querySelector(".password").value;
   let passwordCheck = document.querySelector(".password-check").value;
-  let profiles=loadUsersFromStorage()
+  let profiles = users.getUserDataFromStorage();
 
-    profiles.forEach(user => {
-        if (user.name===userName) {
-            alert("there already exist user with that name.")
-            return
-        }
-    });
+  profiles.forEach((user) => {
+    if (user.name === userName) {
+      alert("there already exist user with that name.");
+      return;
+    }
+  });
 
   if (passwordCheck === password) {
     let profile = {
       name: userName,
       password: password,
     };
-    profiles.push(profile)
 
-    saveUserInStorage(profiles);
+    users.addNewProfile(profile.name,profile.password)
 
     document.querySelector(".username").value = "";
     document.querySelector(".password").value = "";
     document.querySelector(".password-check").value = "";
-    windows.location.href='youtube.html'
+    window.location.href = "youtube.html";
   } else {
     alert("wrong password");
   }
-
-  
 }

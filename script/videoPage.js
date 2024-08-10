@@ -70,7 +70,6 @@ sup my drilla
 
   videosCopy.forEach(video => {
     if (video.id!=matchingVideo.id) {
-      console.log('yes');
       sideHtml+=`
         <div class="side-video">
         <a href="watch.html?videoId=${video.id}">

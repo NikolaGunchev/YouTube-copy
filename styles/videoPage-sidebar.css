@@ -42,6 +42,7 @@
   align-items: center;
   justify-content:left;
   margin-bottom: 30px;
+  padding-left: 10px;
 }
 
 
@@ -64,7 +65,7 @@
 .sidebar-container .sidebar-thing{
   display: flex;
   align-items: center;
-  font-size: 14px;
+  font-size: 16px;
   cursor: pointer;
   padding: 8px 5px;
   border-radius: 10px;
@@ -101,10 +102,6 @@ border-radius: 20px;
 margin: 5px 15px 5px 0px;
 }
 .container .profile p{
-  display: -webkit-box;
-  -webkit-box-orient: vertical;
-  -webkit-line-clamp: 1;
-  white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
   width: 100%;

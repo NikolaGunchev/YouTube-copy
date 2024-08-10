@@ -1,5 +1,8 @@
 import { getVideo, videos } from "../data/videos.js";
 import { shuffleArray } from "./utils/shuffle.js";
+import { users } from "./userData.js";
+console.log(users.userData);
+let activeProfile = JSON.parse(localStorage.getItem("active"));
 
 function renderPage() {
   let html = "";
@@ -14,9 +17,9 @@ function renderPage() {
             <a
             class="video-link"
             href="watch.html?videoId=${video.id}"
-          >
-          <img src="${matchingVideo.thumbnail}" class="thumbnail" />
-          </a>
+            >
+           <img src="${matchingVideo.thumbnail}" class="thumbnail" />
+            </a>
             
             <div class="video-time">${matchingVideo.videoTime}</div>
           </div>
@@ -47,26 +50,56 @@ function renderPage() {
   document.querySelector(".js-video-grid").innerHTML = html;
 
   document.querySelector(".hamburger-menu").addEventListener("click", () => {
-    changeSidebar()
-   });
+    changeSidebar();
+  });
+
+  changeHeader();
 }
+
+
+function changeSidebar() {
+  const sideBarContainer = document.querySelector(".sidebar-container");
+  const body = document.body;
+  if (sideBarContainer.classList.contains("short-sidebar-active")) {
+    sideBarContainer.classList.remove('short-sidebar-active')
+    body.classList.remove("short-sidebar-active");
+  } else {
+    sideBarContainer.classList.add('short-sidebar-active')
+    body.classList.add("short-sidebar-active");
+  }
+}
+
+function changeHeader() {
+  let profile = document.querySelector(".profile");
+  let profileSign = document.querySelector(".profile-sign");
+  if (activeProfile === "notLogged") {
+    profile.style.display = "none";
+    profileSign.style.display = "block";
+  } else {
+    profile.style.display = "block";
+    profileSign.style.display = "none";
+  }
+}
+
+document.querySelector(".current-profile-pic").addEventListener("click", () => {
+  let popup = document.querySelector(".name-popup");
+  let name;
+  let hashName;
+
+  if (popup.style.display === "block") {
+    popup.style.display = "none";
+  } else {
+    popup.style.display = "block";
+    name = document.querySelector(".js-name-popup");
+    hashName = document.querySelector(".js-hash-name-popup");
+    name.innerHTML = activeProfile;
+    hashName.innerHTML = `@${activeProfile.replace(/\s+/g, "").toLowerCase()}`;
+  }
+});
+
+document.querySelector(".side-thing").addEventListener("click", () => {
+  activeProfile = "notLogged";
+  localStorage.setItem("active", JSON.stringify(activeProfile));
+  renderPage();
+});
 renderPage();
-
-const sideBar = document.querySelector(".sidebar-container");
-const body = document.body;
-
-function changeSidebar(){
-    if (sideBar.classList.contains('short-sidebar')) {
-        sideBar.classList.remove("short-sidebar");
-        sideBar.classList.add('sidebar');
-        body.classList.remove('short-sidebar-active');
-      } else {
-        sideBar.classList.add("short-sidebar");
-        sideBar.classList.remove('sidebar');
-        body.classList.add('short-sidebar-active');
-      }
-}
-
-
-
-
