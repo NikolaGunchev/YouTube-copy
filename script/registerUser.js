@@ -5,6 +5,7 @@ document.querySelector(".sign-up").addEventListener("click", () => {
 });
 
 function getData() {
+  let activeProfile=JSON.parse(localStorage.getItem('active')) || 'notLogged'
   let userName = document.querySelector(".username").value;
   let password = document.querySelector(".password").value;
   let passwordCheck = document.querySelector(".password-check").value;
@@ -24,6 +25,8 @@ function getData() {
     };
 
     users.addNewProfile(profile.name,profile.password)
+    activeProfile=profile.name
+    localStorage.setItem('active', JSON.stringify(activeProfile))
 
     document.querySelector(".username").value = "";
     document.querySelector(".password").value = "";

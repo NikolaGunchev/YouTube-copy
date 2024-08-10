@@ -1,6 +1,6 @@
 import { users } from "./userData.js";
 
-export let activeProfile=JSON.parse(localStorage.getItem('active')) || 'notLogged'
+let activeProfile=JSON.parse(localStorage.getItem('active')) || 'notLogged'
 
 document.querySelector('.login').addEventListener("click",()=>{
     const name=document.querySelector('.js-user-name').value

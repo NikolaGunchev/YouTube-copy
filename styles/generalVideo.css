@@ -68,6 +68,7 @@ body{
 
 a{
   text-decoration: none;
+  color: black;
 }
 a:active{
   color: black;
@@ -75,4 +76,8 @@ a:active{
 
 button{
   font-family: Roboto, Arial;
+}
+
+input:focus {
+  outline: none;
 }
