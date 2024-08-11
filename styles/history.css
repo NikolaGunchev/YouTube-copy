@@ -1,4 +1,4 @@
-.main-container{
+.main-container {
   display: flex;
   flex-direction: row;
   position: absolute;
@@ -7,75 +7,148 @@
   width: 70%;
 }
 
-.history-container{
-  flex: 3;
+@media(min-width:1550.1px){
+  .history-container {
+    flex: 3;
+  }
+  
+  .history-settings {
+    flex: 1;
+  }
 }
 
-.history-settings{
- flex: 1;
+@media(max-width:1550px){
+  .history-container {
+    flex: 2;
+  }
+
+  .main-container{
+    column-gap: 100px;
+  }
+  
+  .history-settings {
+    flex: 2;
+  }
 }
 
-h1{
+@media(max-width:1200px){
+  .history-container {
+    flex: 1;
+  }
+
+  .main-container{
+    left: 15%;
+    column-gap: 50px;
+  }
+  
+  .history-settings {
+    flex: 2;
+  }
+}
+
+@media(max-width:970px){
+  .text {
+    display: none;
+  }
+}
+
+@media(max-width:860px){
+  .main-container{
+    flex-direction: column;
+  }
+
+  .history-container {
+    order: 2;
+  }
+  
+  .history-settings {
+    order: 1;
+    margin-bottom: 100px
+  }
+
+  .text{
+    display: block;
+  }
+}
+
+@media(max-width:500px){
+  .main-container{
+    left: 5%;
+  }
+
+  .history-settings {
+    margin-left: 100px
+  }
+}
+
+h1 {
   font-family: Roboto, Arial;
   font-size: 36px;
   margin-bottom: 70px;
 }
 
-.video{
+.video {
   display: flex;
   flex-direction: row;
   column-gap: 15px;
   margin-bottom: 15px;
+  min-width: 450px;
 }
 
-.video img{
+.video img {
   width: 250px;
   border-radius: 10px;
 }
 
-.video-box{
+.video-box {
   position: relative;
+  cursor: pointer;
 }
 
-.text{
-  flex:1;
+.text {
+  flex: 1;
 }
 
-.video-title img{
-width: 27px;
-cursor: pointer;
+.video-title img {
+  width: 27px;
+  cursor: pointer;
 }
 
-.video-title{
+.video-title {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  cursor: pointer;
 }
 
-.video-title p{
+.video-title p {
   font-size: 18px;
   display: -webkit-box;
   -webkit-box-orient: vertical;
-  -webkit-line-clamp: 1; 
+  -webkit-line-clamp: 2;
   overflow: hidden;
   text-overflow: ellipsis;
 }
 
-.under-title{
+.under-title {
   font-size: 13px;
   color: gray;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
-.description{
+.description {
   margin-top: 15px;
   display: -webkit-box;
   -webkit-box-orient: vertical;
-  -webkit-line-clamp: 2; 
+  -webkit-line-clamp: 2;
   overflow: hidden;
   text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
-.video-time{
+.video-time {
   position: absolute;
   bottom: 10px;
   right: 10px;
@@ -84,19 +157,19 @@ cursor: pointer;
   background-color: black;
   font-size: 14px;
   padding: 3px;
-  border-radius: 5px ;
-} 
+  border-radius: 5px;
+}
 
-.title-img img{
+.title-img img {
   padding: 3px;
 }
 
-.cross-container{
+.cross-container {
   display: inline-block;
   position: relative;
 }
 
-.remove-text{
+.remove-text {
   position: absolute;
   bottom: -90px;
   right: -20px;
@@ -113,23 +186,28 @@ cursor: pointer;
   transition: opacity 0.25s;
 }
 
-.cross-button:hover{
+.cross-button:hover {
   background-color: rgb(233, 233, 233);
   border-radius: 20px;
 }
-.cross-container:hover .remove-text{
+.cross-container:hover .remove-text {
   opacity: 1;
 }
-.cross-button:active{
-  background-color: rgb(209, 209, 209)
+.cross-button:active {
+  background-color: rgb(209, 209, 209);
 }
 
-.dots-button:active{
+.dots-button:active {
   background-color: rgb(209, 209, 209);
   border-radius: 20px;
 }
 
-.input-container img{
+.history-settings{
+  display: inline-flex;
+  flex-direction: column;
+}
+
+.input-container img {
   width: 25px;
   padding: 5px;
 }
@@ -138,8 +216,8 @@ cursor: pointer;
   border-radius: 20px;
 }
 
-.input-container{
-  display: flex;
+.input-container {
+  display: inline-flex;
   align-items: center;
   margin-top: 80px;
   position: relative;
@@ -147,7 +225,7 @@ cursor: pointer;
   margin-bottom: 30px;
 }
 
-.input-container::before{
+.input-container::before {
   content: "";
   position: absolute;
   bottom: 0;
@@ -158,28 +236,30 @@ cursor: pointer;
   background-color: rgb(22, 22, 22);
 }
 
-.input-container input{
+.input-container input {
   border: none;
   background-color: transparent;
   font-size: 15px;
   font-family: Roboto, Arial;
 }
 
-.setting{
-  display: flex;
+.setting {
+  display: inline-flex;
   font-size: 14px;
   font-weight: 500;
   padding: 7px;
-  overflow: hidden;
+  border-radius: 20px;
+  cursor: pointer;
 }
 
-.setting img{
+.setting img {
   width: 20px;
   margin-right: 10px;
 }
 
-.setting:hover{
-background-color: rgb(212, 212, 212);
-border-radius: 20px;
-cursor: pointer;
+.setting:hover {
+  background-color: rgb(221, 221, 221);
+}
+.setting:active {
+  background-color: rgb(196, 196, 196);
 }
