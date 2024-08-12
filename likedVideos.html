@@ -11,9 +11,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Youtube</title>
   <link rel="stylesheet" href="styles/header.css" />
-  <link rel="stylesheet" href="styles/history-sidebar.css" />
+  <link rel="stylesheet" href="styles/channel-sidebar.css" />
   <link rel="stylesheet" href="styles/general-history.css">
-  <link rel="stylesheet" href="styles/history.css">
+  <link rel="stylesheet" href="styles/likedVideos.css">
 </head>
 <body>
   <header class="header">
@@ -110,12 +110,10 @@
           <img src="./pictures/icons/watch-later.svg" />
           <p>Watch later</p>
         </div>
-        <a href="likedVideos.html">
-          <div class="sidebar-thing">
-            <img src="./pictures/icons/youtube-like.svg" />
-            <p>Liked videos</p>
-          </div>
-        </a>
+        <div class="sidebar-thing">
+          <img src="./pictures/icons/youtube-like.svg" />
+          <p>Liked videos</p>
+        </div>
       </div>
       <div class="container">
         <p class="subs">Subscription</p>
@@ -141,51 +139,68 @@
    </div>
   </nav>
 
-  <main >
-    <div class="main-container">
-    <div class="history-container">
-      <h1>Watch history</h1>
-      <div class="videos-list">
-        <div class="video">
-          <div class="video-box">
-            <img src="pictures/thumbnails/thumbnail-6.webp">
-            <div class="video-time">8:01</div>
+  <main class="main">
+    <div class="first-video-box">
+      <div class="content">
+        <div class="image-box">
+          <img src="pictures/thumbnails/thumbnail-9.webp">
+        </div>
+        <h1>Liked videos</h1>
+        <p class="text1">Active user</p>
+        <p class="text2">123 videos</p>
+      </div>
+    </div>
+    <div class="videos-list">
+      <div class="video">
+        <div>1</div>
+        <div class="image-box-video">
+          <img src="pictures/thumbnails/thumbnail-9.webp">
+          <div class="video-time">12:24</div>
+        </div>
+        <div class="video-content">
+          <div class="video-text">
+            <p class="text3">JavaScript tutorial full course - begginer to pro (2024)</p>
+            <p class="text4">SuperSimpleDev &middot; 1.2M views &middot; 3 months ago</p>
           </div>
-          <div class="text">
-            <div class="video-title">
-              <div>
-                <p>Vedal gets DDoSD live on stream skull</p>
-              </div>
-              <div class="title-img">
-                <div class="cross-container">
-                  <img src="pictures/icons/cross.svg" class="cross-button">
-                  <div class="remove-text">Remove from watch history</div>
-                </div>
-                
-                <img src="pictures/icons/youtube-vertical-dots.svg" class="dots-button">
-              </div>
-            </div>
-            <div class="under-title">
-              <p>Channel name &middot; 176K views</p>
-              <p class="description">Description of the video</p>
-            </div>
+          <div class="video-options">
+            <img src="pictures/icons/youtube-vertical-dots.svg">
           </div>
         </div>
-        
+      </div>
+      <div class="video">
+        <div>1</div>
+        <div class="image-box-video">
+          <img src="pictures/thumbnails/thumbnail-9.webp">
+          <div class="video-time">12:24</div>
+        </div>
+        <div class="video-content">
+          <div class="video-text">
+            <p class="text3">JavaScript tutorial full course - begginer to pro (2024)</p>
+            <p class="text4">SuperSimpleDev &middot; 1.2M views &middot; 3 months ago</p>
+          </div>
+          <div class="video-options">
+            <img src="pictures/icons/youtube-vertical-dots.svg">
+          </div>
+        </div>
+      </div>
+      <div class="video">
+        <div>1</div>
+        <div class="image-box-video">
+          <img src="pictures/thumbnails/thumbnail-9.webp">
+          <div class="video-time">12:24</div>
+        </div>
+        <div class="video-content">
+          <div class="video-text">
+            <p class="text3">JavaScript tutorial full course - begginer to pro (2024)</p>
+            <p class="text4">SuperSimpleDev &middot; 1.2M views &middot; 3 months ago</p>
+          </div>
+          <div class="video-options">
+            <img src="pictures/icons/youtube-vertical-dots.svg">
+          </div>
+        </div>
       </div>
     </div>
-    <div class="history-settings">
-      <div class="input-container">
-        <img src="pictures/icons/search.svg">
-        <input type="text" placeholder="Search watch history">
-      </div>
-      <div class="setting">
-        <img src="pictures/icons/trashcan.svg">
-        <p>Clear all watch history</p>
-      </div>
-    </div>
-  </div>
   </main>
-  <script src="./script/histoy.js" type="module"></script>
+<script src="./script/likedVideos.js" type="module"></script>
 </body>
 </html>

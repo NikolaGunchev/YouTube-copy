@@ -1,6 +1,7 @@
 import { getVideo, videos } from "../data/videos.js";
 import { shuffleArray } from "./utils/shuffle.js";
 import { users } from "./userData.js";
+
 console.log(users.userData);
 let activeProfile = JSON.parse(localStorage.getItem("active"));
 
