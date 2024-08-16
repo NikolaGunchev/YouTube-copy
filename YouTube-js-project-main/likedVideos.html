@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Youtube</title>
+  <link rel="stylesheet" href="styles/header.css" />
+  <link rel="stylesheet" href="styles/channel-sidebar.css" />
+  <link rel="stylesheet" href="styles/general-history.css">
+  <link rel="stylesheet" href="styles/likedVideos.css">
+</head>
+<body>
+  <header class="header">
+    <div class="left-section">
+      <img src="./pictures/icons/hamburger-menu.svg" class="hamburger-menu" />
+      <a href="youtube.html">
+        <img src="./pictures/icons/youtube-logo.svg" class="youtube-logo" />
+      </a>
+    </div>
+    <div class="middle-section">
+      <input type="text" class="searchBox" placeholder="Search" />
+      <button class="search-button">
+        <img class="search-icon" src="./pictures/icons/search.svg" />
+        <div class="tooltip">Search</div>
+      </button>
+      <button class="voice-button">
+        <img
+          class="voice-icon"
+          src="./pictures/icons/voice-search-icon.svg"
+        />
+        <div class="tooltip">Search with your voice</div>
+      </button>
+    </div>
+    <div class="right-section">
+      <div class="upload-icon-container">
+        <img src="./pictures/icons/upload.svg" class="upload-icon" />
+        <div class="tooltip">Create</div>
+      </div>
+      <div class="youtube-apps-container">
+        <img src="./pictures/icons/youtube-apps.svg" class="apps-icon" />
+        <div class="tooltip">YouTube apps</div>
+      </div>
+      <div class="notif-icon-container">
+        <img src="./pictures/icons/notifications.svg" class="notif-icon" />
+        <div class="notif-count">3</div>
+        <div class="tooltip">YouTube apps</div>
+      </div>
+      <div class="profile">
+        <img
+          src="./pictures/profile-pic/profile-user.png"
+          class="current-profile-pic"
+        />
+        <div class="name-popup">
+          <div class="name-popup-header">
+            <img src="pictures/profile-pic/profile-user.png" />
+            <div>
+              <p class="js-name-popup">Active Name</p>
+              <p class="js-hash-name-popup">@ActiveName</p>
+            </div>
+          </div>
+          <div class="border"></div>
+          <div class="side-thing">
+            <img src="pictures/icons/exit.svg" />
+            <p>Sign out</p>
+          </div>
+        </div>
+      </div>
+      <div class="profile-sign">
+        <a href="signForm.html">
+          <button>Sign in</button>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <nav class="sidebar-container">
+    <div class="sidebar">
+      <div class="container">
+        <div class="sidebar-thing">
+          <img src="./pictures/sidebar-icons/home.svg" />
+          <p>Home</p>
+        </div>
+        <div class="sidebar-thing">
+          <img src="./pictures/sidebar-icons/subscriptions.svg" />
+          <p>Subscriptions</p>
+        </div>
+      </div>
+      <div class="container">
+        <a href="channel.html">
+          <p class="you">You &gt;</p>
+        </a>
+        <div class="sidebar-thing">
+          <img src="./pictures/icons/your-channel.svg" />
+          <p>Your channel</p>
+        </div>
+        <a href="histoy.html">
+          <div class="sidebar-thing">
+            <img src="./pictures/icons/histoy.svg" />
+            <p>Histoy</p>
+          </div>
+        </a>
+        
+        <div class="sidebar-thing">
+          <img src="./pictures/icons/watch-later.svg" />
+          <p>Watch later</p>
+        </div>
+        <div class="sidebar-thing">
+          <img src="./pictures/icons/youtube-like.svg" />
+          <p>Liked videos</p>
+        </div>
+      </div>
+      <div class="container">
+        <p class="subs">Subscription</p>
+        <div class="profile">
+          <img src="./pictures/profile-pic/channel-3.jpeg" />
+          <p>SniperWolf</p>
+        </div>
+      </div>
+    </div>
+   <div class="short-sidebar">
+    <div class="short-sidebar-thing">
+      <img src="pictures/sidebar-icons/home.svg">
+      <p>Home</p>
+    </div>
+    <div class="short-sidebar-thing">
+      <img src="pictures/sidebar-icons/subscriptions.svg">
+      <p>Subscribers</p>
+    </div>
+    <div class="short-sidebar-thing">
+      <img src="pictures/sidebar-icons/library.svg">
+      <p>You</p>
+    </div>
+   </div>
+  </nav>
+
+  <main class="main">
+    <div class="first-video-box js-first-video-box">
+      
+    </div>
+    <div class="videos-list js-video-list">
+    </div>
+  </main>
+<script src="./script/likedVideos.js" type="module"></script>
+</body>
+</html>

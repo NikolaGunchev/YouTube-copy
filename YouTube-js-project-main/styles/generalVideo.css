@@ -1,0 +1,83 @@
+p{
+  font-family: Roboto, Arial;
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+
+body{
+  margin: 0px;
+  padding-top: 80px;
+  padding-left: 110px;
+  padding-right: 110px;
+  height: 100%;
+}
+
+@media(max-height:850px){
+  body{
+      transition: padding 0.05s ease;
+      padding-left: 160px;
+      padding-right: 160px;
+  }
+}
+@media(max-height:700px){
+  body{
+    transition: padding 0.05s ease;
+      padding-left: 200px;
+      padding-right: 200px;
+  }
+}
+@media(max-height:550px){
+  body{
+    transition: padding 0.05s ease;
+      padding-left: 250px;
+      padding-right: 250px;
+  }
+}
+@media(max-height:400px){
+  body{
+    transition: padding 0.05s ease;
+      padding-left: 300px;
+      padding-right: 300px;
+  }
+}
+
+@media(max-width:1700px){
+  
+  body{
+      transition: padding 0.05s ease;
+    padding-left: 80px;
+    padding-right: 80px;
+  }
+}
+@media(max-width:1500px){
+  
+  body{
+      transition: padding 0.05s ease;
+    padding-left: 50px;
+    padding-right: 50px;
+  }
+}
+@media(max-width:1300px){
+  
+  body{
+      transition: padding 0.05s ease;
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+}
+
+a{
+  text-decoration: none;
+  color: black;
+}
+a:active{
+  color: black;
+}
+
+button{
+  font-family: Roboto, Arial;
+}
+
+input:focus {
+  outline: none;
+}
