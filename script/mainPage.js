@@ -1,5 +1,6 @@
 import { getVideo, videos } from "../data/videos.js";
 import { shuffleArray } from "./utils/shuffle.js";
+import { getChannel } from "../data/channels.js";
 import { users } from "./userData.js";
 
 console.log(users.userData);
@@ -12,6 +13,7 @@ function renderPage() {
 
   videosCopy.forEach((video) => {
     let matchingVideo = getVideo(video.id);
+    let matchingChannel=getChannel(matchingVideo.channel)
     html += `
         <div class="video-preview">
           <div class="image-box">
@@ -27,7 +29,7 @@ function renderPage() {
           <div class="video-info-grid">
             <div class="channel-pic">
               <img
-                src="${matchingVideo.profilePic}"
+                src="${matchingChannel.profilePic}"
                 class="profile-pic"
               />
             </div>
@@ -40,7 +42,7 @@ function renderPage() {
                   ${matchingVideo.title}
                 </a>
               </p>
-              <p class="channel-name">${matchingVideo.channel}</p>
+              <p class="channel-name">${matchingChannel.name}</p>
               <p class="channel-misc">${matchingVideo.views} views &#183; ${matchingVideo.date} ago</p>
             </div>
           </div>

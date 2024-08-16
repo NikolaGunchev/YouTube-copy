@@ -18,8 +18,6 @@ export const videos = [
   views: "3.4M",
   date: "6 months",
   videoTime: "14:20",
-  link: "https://www.youtube.com/watch?v=n2RNcPRtAiY",
-  subs:'19,2M'
 },
 {
   id: "564af998-e162-4c01-9b6d-eef92851c7a9",
@@ -30,8 +28,6 @@ export const videos = [
   views: "19M",
   date: "4 years",
   videoTime: "8:22",
-  link: "https://www.youtube.com/watch?v=mP0RAo9SKZk",
-  subs:'36,8M'
 },
 {
   id: "af08636c-2f0e-42a7-870b-59ddd0c33d0e",
@@ -42,8 +38,6 @@ export const videos = [
   views: "12M",
   date: "1 year",
   videoTime: "9:13",
-  link: "https://www.youtube.com/watch?v=FgjPQQeTh1w",
-  subs:'34,5M'
 },
 {
   id: "f6c5b293-5b95-4d85-aaf9-eb56ff3ceb1d",
@@ -54,8 +48,6 @@ export const videos = [
   views: "18M",
   date: "4 months",
   videoTime: "22:09",
-  link: "https://www.youtube.com/watch?v=094y1Z2wpJg",
-  subs:'15,9M'
 },
 {
   id: "c8db4489-4a52-4405-8588-168ebca43b72",
@@ -66,8 +58,6 @@ export const videos = [
   views: "519K",
   date: "5 years",
   videoTime: "11:17",
-  link: "https://www.youtube.com/watch?v=86CQq3pKSUw",
-  subs:'1,94M'
 },
 {
   id: "2ce1d622-c991-49e1-86ae-d898c140a708",
@@ -78,8 +68,6 @@ export const videos = [
   views: "141M",
   date: "1 year",
   videoTime: "19:59",
-  link: "https://www.youtube.com/watch?v=yXWw0_UfSFg",
-  subs:'308M'
 },
 {
   id: "d775efcc-7923-47fc-8556-ec2b77593cc6",
@@ -90,8 +78,6 @@ export const videos = [
   views: "6.6M",
   date: "1 year",
   videoTime: "10:13",
-  link: "https://www.youtube.com/watch?v=fNVa1qMbF9Y",
-  subs:'7,53M'
 },
 {
   id: "4e5624a0-b59b-427e-b963-d3ce616b9472",
@@ -102,8 +88,6 @@ export const videos = [
   views: "3.7M",
   date: "10 months",
   videoTime: "7:12",
-  link: "https://www.youtube.com/watch?v=lFm4EM1juls",
-  subs:'837K'
 },
 {
   id: "73c03d2e-e53e-4cb5-afb0-6a1ecdcb1f56",
@@ -114,8 +98,6 @@ export const videos = [
   views: "20М",
   date: "3 year",
   videoTime: "13:17",
-  link: "https://www.youtube.com/watch?v=ixmxOlcrlUc",
-  subs: '7,79M'
 },
 {
   id: "49f49651-cd6d-45b9-9ab3-873d78f52c1d",
@@ -126,8 +108,6 @@ export const videos = [
   views: "14M",
   date: "1 year",
   videoTime: "7:53",
-  link: "https://www.youtube.com/watch?v=R2vXbFp5C9o",
-  subs:'9,4M'
 },
 {
   id: "fd7f12ba-da27-4b04-b2c0-0268683fa444",
@@ -138,8 +118,6 @@ export const videos = [
   views: "3M",
   date: "1 year",
   videoTime: "4:10",
-  link: "https://www.youtube.com/watch?v=0nZuYyXET3s",
-  subs:'282K'
 },
 {
   id: "4262ac6c-9d90-418d-aab4-93f5a5c05614",
@@ -150,7 +128,5 @@ export const videos = [
   views: "12M",
   date: "5 year",
   videoTime: "4:51",
-  link: "https://www.youtube.com/watch?v=9iMGFqMmUFs",
-  subs:'20,2M'
 },
 ];
