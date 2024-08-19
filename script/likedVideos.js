@@ -1,5 +1,6 @@
 import { users } from "./userData.js";
 import { getVideo } from "../data/videos.js";
+import { getChannel } from "../data/channels.js";
 let activeProfile = JSON.parse(localStorage.getItem("active"));
 console.log(users.userData);
 
@@ -19,9 +20,11 @@ function renderPage(){
             <div class="image-box">
               <img src=${matchingVideoBig.thumbnail}>
             </div>
+            <div class=video-box-text>
             <h1>Liked videos</h1>
             <p class="text1">${activeProfile}</p>
             <p class="text2">${user.likedVideos.length} videos</p>
+            </div>
          </div>
           `
           let firstVideoBox = document.querySelector('.first-video-box');
@@ -70,5 +73,27 @@ function renderPage(){
   document.querySelector(".hamburger-menu").addEventListener("click", () => {
     changeSidebar();
   });
+
+  function loadSubscribers(){
+    let subsHtml=``
+
+    users.userData.forEach(user=>{
+      if (user.name===activeProfile) {
+        user.subscribers.forEach(sub=>{
+          let matchingSub=getChannel(sub)
+
+          subsHtml+=`
+          <div class="profile">
+            <img src=${matchingSub.profilePic} />
+            <p>${matchingSub.name}</p>
+          </div>
+          `
+        })
+      }
+    })
+    return subsHtml
+  }
+  
+  document.querySelector('.js-sub-container').innerHTML=loadSubscribers()
 }
 renderPage()

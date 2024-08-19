@@ -90,18 +90,18 @@ class User {
     this.saveUserDataToStorage();
   }
 
-  addToSubscribers(name, id) {
+  addToSubscribers(name, matchingChannel) {
     let have = false;
     this.userData.forEach((user) => {
       if (user.name === name) {
-        user.subscribers.forEach((channelId, i) => {
-          if (channelId === id) {
+        user.subscribers.forEach((channel, i) => {
+          if (channel === matchingChannel) {
             user.subscribers.splice(i, 1);
             have = true;
           }
         });
         if (!have) {
-          user.subscribers.unshift(id);
+          user.subscribers.unshift(matchingChannel);
         }
       }
     });
@@ -113,7 +113,7 @@ class User {
     this.userData.forEach((user) => {
       if (user.name === activeProfile) {
         user.subscribers.forEach((channel) => {
-          if (channel === matchingChannel.id) {
+          if (channel === matchingChannel.name) {
             subscribeBut.innerHTML = "Subscribed";
             subscribeBut.style.backgroundColor='white';
             subscribeBut.style.color='black';

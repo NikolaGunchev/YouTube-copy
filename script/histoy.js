@@ -1,5 +1,6 @@
 import { users } from "./userData.js";
 import { getVideo } from "../data/videos.js";
+import { getChannel } from "../data/channels.js";
 let activeProfile = JSON.parse(localStorage.getItem("active"));
 
 function renderPage() {
@@ -69,6 +70,28 @@ function changeSidebar() {
 document.querySelector(".hamburger-menu").addEventListener("click", () => {
   changeSidebar();
 });
+
+function loadSubscribers(){
+  let subsHtml=``
+
+  users.userData.forEach(user=>{
+    if (user.name===activeProfile) {
+      user.subscribers.forEach(sub=>{
+        let matchingSub=getChannel(sub)
+
+        subsHtml+=`
+        <div class="profile">
+          <img src=${matchingSub.profilePic} />
+          <p>${matchingSub.name}</p>
+        </div>
+        `
+      })
+    }
+  })
+  return subsHtml
+}
+
+document.querySelector('.js-sub-container').innerHTML=loadSubscribers()
 renderPage();
 
 

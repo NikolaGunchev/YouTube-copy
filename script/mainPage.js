@@ -55,8 +55,30 @@ function renderPage() {
   document.querySelector(".hamburger-menu").addEventListener("click", () => {
     changeSidebar();
   });
-
+ 
   changeHeader();
+
+  function loadSubscribers(){
+    let subsHtml=``
+
+    users.userData.forEach(user=>{
+      if (user.name===activeProfile) {
+        user.subscribers.forEach(sub=>{
+          let matchingSub=getChannel(sub)
+
+          subsHtml+=`
+          <div class="profile">
+            <img src=${matchingSub.profilePic} />
+            <p>${matchingSub.name}</p>
+          </div>
+          `
+        })
+      }
+    })
+    return subsHtml
+  }
+  
+  document.querySelector('.js-sub-container').innerHTML=loadSubscribers()
 }
 
 

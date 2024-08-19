@@ -15,17 +15,16 @@ function renderPage() {
 
   const matchingVideo = getVideo(videoId);
   const matchingChannel = getChannel(matchingVideo.channel);
-  const matchingVideoLike=getVideoLikes(matchingVideo.id)
-  let totalLikes
+  let totalLikes=0
   if (likes.length) {
     likes.forEach(video=>{
       if (video.id===matchingVideo.id) {
-        totalLikes=matchingVideoLike.users.length 
-      } else {
-        totalLikes=0
-      }
+        totalLikes=video.users.length 
+        console.log(totalLikes);
+      } 
     })
   } else totalLikes=0
+console.log(totalLikes);
 
 
   let videoHtml = "";
@@ -128,35 +127,33 @@ function renderPage() {
 
   function videoLikes() {
     let have = false;
-    let haveNoUser=true
+    let noSuchUser=true
     if (likes.length) {
       likes.forEach((video) => {
         if (video.id === matchingVideo.id) {
-          have = false;
+          have = true;
           video.users.forEach((user,i)=>{
           if (user === activeProfile) {
             console.log("splice here");
             console.log(video)
             video.users.splice(i, 1);
             localStorage.setItem("likes", JSON.stringify(likes));
-            haveNoUser=false
+            noSuchUser=false
             return
           } 
         })
-        if(haveNoUser){
+        if(noSuchUser){
           console.log("add profile to existing video");
           console.log(video)
           video.users.push(activeProfile);
           localStorage.setItem("likes", JSON.stringify(likes));
-          haveNoUser=true
+          noSuchUser=true
           return
         }
-        } else {
-          have = true;
         }
       });
-      if (have) {
-        console.log("else2");
+      if (!have) {
+        console.log("add video in array with current profile");
         likes.push({
           id: matchingVideo.id,
           users: [activeProfile],
@@ -164,7 +161,7 @@ function renderPage() {
         localStorage.setItem("likes", JSON.stringify(likes));
       }
     } else {
-      console.log("else");
+      console.log("add video to start array");
 
       likes.push({
         id: matchingVideo.id,
@@ -174,23 +171,45 @@ function renderPage() {
     }
   }
 
-  function getVideoLikes(id){
-    let matchingVideoLike
-    likes.forEach(video =>{
-      if (video.id===id) {
-        matchingVideoLike=video
-      }
-    })
-    return matchingVideoLike
-  }
+  // function getVideoLikes(id){
+  //   let matchingVideoLike
+  //   likes.forEach(video =>{
+  //     if (video.id===id) {
+  //       matchingVideoLike=video
+  //     }
+  //   })
+  //   return matchingVideoLike
+  // }
 
   let subscribeBut = document.querySelector(".js-subscribe");
   subscribeBut.addEventListener("click", () => {
-    users.addToSubscribers(activeProfile, matchingChannel.id);
+    users.addToSubscribers(activeProfile, matchingChannel.name);
     renderPage();
   });
 
   users.changeSubButton(activeProfile, subscribeBut, matchingChannel);
+
+  function loadSubscribers(){
+    let subsHtml=``
+
+    users.userData.forEach(user=>{
+      if (user.name===activeProfile) {
+        user.subscribers.forEach(sub=>{
+          let matchingSub=getChannel(sub)
+
+          subsHtml+=`
+          <div class="profile">
+            <img src=${matchingSub.profilePic} />
+            <p>${matchingSub.name}</p>
+          </div>
+          `
+        })
+      }
+    })
+    return subsHtml
+  }
+  
+  document.querySelector('.js-sub-container').innerHTML=loadSubscribers()
 
   const body = document.body;
   const overlay = document.querySelector(".overlay");
