@@ -1,11 +1,12 @@
 import { users } from "./userData.js";
 import { getVideo } from "../data/videos.js";
 import { getChannel } from "../data/channels.js";
+import { changeHeader } from "./utils/changeHeader.js";
 let activeProfile = JSON.parse(localStorage.getItem("active"));
 
 function renderPage() {
   let historyHtml = "";
-  let likedHtml='';
+  let likedHtml = "";
 
   users.userData.forEach((user) => {
     if (user.name === activeProfile) {
@@ -60,7 +61,7 @@ function renderPage() {
   });
 
   document.querySelector(".js-history-grid").innerHTML = historyHtml;
-  document.querySelector('.js-liked-grid').innerHTML=likedHtml;
+  document.querySelector(".js-liked-grid").innerHTML = likedHtml;
 
   function changeSidebar() {
     const sideBarContainer = document.querySelector(".sidebar-container");
@@ -78,26 +79,30 @@ function renderPage() {
     changeSidebar();
   });
 
-  function loadSubscribers(){
-    let subsHtml=``
+  function loadSubscribers() {
+    let subsHtml = ``;
 
-    users.userData.forEach(user=>{
-      if (user.name===activeProfile) {
-        user.subscribers.forEach(sub=>{
-          let matchingSub=getChannel(sub)
+    users.userData.forEach((user) => {
+      if (user.name === activeProfile) {
+        user.subscribers.forEach((sub) => {
+          let matchingSub = getChannel(sub);
 
-          subsHtml+=`
+          subsHtml += `
           <div class="profile">
             <img src=${matchingSub.profilePic} />
             <p>${matchingSub.name}</p>
           </div>
-          `
-        })
+          `;
+        });
       }
-    })
-    return subsHtml
+    });
+    return subsHtml;
   }
-  
-  document.querySelector('.js-sub-container').innerHTML=loadSubscribers()
+
+  document.querySelector(".js-sub-container").innerHTML = loadSubscribers();
+
+  console.log('hello');
 }
 renderPage();
+
+changeHeader(activeProfile, renderPage);

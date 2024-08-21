@@ -122,7 +122,7 @@ document.querySelector(".current-profile-pic").addEventListener("click", () => {
   }
 });
 
-document.querySelector(".side-thing").addEventListener("click", () => {
+document.querySelector(".js-sign-out").addEventListener("click", () => {
   activeProfile = "notLogged";
   localStorage.setItem("active", JSON.stringify(activeProfile));
   renderPage();

@@ -1,6 +1,7 @@
 import { users } from "./userData.js";
 import { getVideo } from "../data/videos.js";
 import { getChannel } from "../data/channels.js";
+import { changeHeader } from "./utils/changeHeader.js";
 let activeProfile = JSON.parse(localStorage.getItem("active"));
 
 function renderPage() {
@@ -53,6 +54,8 @@ document.querySelectorAll('.js-cross').forEach(cross =>{
     renderPage()
   })
 })
+
+changeHeader(activeProfile,renderPage)
 }
 
 function changeSidebar() {
