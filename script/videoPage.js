@@ -2,34 +2,33 @@ import { videos, getVideo } from "../data/videos.js";
 import { shuffleArray } from "./utils/shuffle.js";
 import { getChannel } from "../data/channels.js";
 import { users } from "./userData.js";
+import { changeHeader } from "./utils/changeHeader.js";
 
-let activeProfile = JSON.parse(localStorage.getItem("active"));
 let likes = JSON.parse(localStorage.getItem("likes")) || [];
 console.log(users.userData);
 console.log(likes);
 
-
 function renderPage() {
+  let activeProfile = JSON.parse(localStorage.getItem("active"));
   const url = new URL(window.location.href);
   const videoId = url.searchParams.get("videoId");
 
   const matchingVideo = getVideo(videoId);
   const matchingChannel = getChannel(matchingVideo.channel);
-  let totalLikes=0
+  let totalLikes = 0;
   if (likes.length) {
-    likes.forEach(video=>{
-      if (video.id===matchingVideo.id) {
-        totalLikes=video.users.length 
+    likes.forEach((video) => {
+      if (video.id === matchingVideo.id) {
+        totalLikes = video.users.length;
         console.log(totalLikes);
-      } 
-    })
-  } else totalLikes=0
-console.log(totalLikes);
-
+      }
+    });
+  } else totalLikes = 0;
+  console.log(totalLikes);
 
   let videoHtml = "";
 
-    videoHtml = `
+  videoHtml = `
     <div class="video">
             <img src="${matchingVideo.thumbnail}" />
           </div>
@@ -127,29 +126,29 @@ console.log(totalLikes);
 
   function videoLikes() {
     let have = false;
-    let noSuchUser=true
+    let noSuchUser = true;
     if (likes.length) {
       likes.forEach((video) => {
         if (video.id === matchingVideo.id) {
           have = true;
-          video.users.forEach((user,i)=>{
-          if (user === activeProfile) {
-            console.log("splice here");
-            console.log(video)
-            video.users.splice(i, 1);
+          video.users.forEach((user, i) => {
+            if (user === activeProfile) {
+              console.log("splice here");
+              console.log(video);
+              video.users.splice(i, 1);
+              localStorage.setItem("likes", JSON.stringify(likes));
+              noSuchUser = false;
+              return;
+            }
+          });
+          if (noSuchUser) {
+            console.log("add profile to existing video");
+            console.log(video);
+            video.users.push(activeProfile);
             localStorage.setItem("likes", JSON.stringify(likes));
-            noSuchUser=false
-            return
-          } 
-        })
-        if(noSuchUser){
-          console.log("add profile to existing video");
-          console.log(video)
-          video.users.push(activeProfile);
-          localStorage.setItem("likes", JSON.stringify(likes));
-          noSuchUser=true
-          return
-        }
+            noSuchUser = true;
+            return;
+          }
         }
       });
       if (!have) {
@@ -189,27 +188,27 @@ console.log(totalLikes);
 
   users.changeSubButton(activeProfile, subscribeBut, matchingChannel);
 
-  function loadSubscribers(){
-    let subsHtml=``
+  function loadSubscribers() {
+    let subsHtml = ``;
 
-    users.userData.forEach(user=>{
-      if (user.name===activeProfile) {
-        user.subscribers.forEach(sub=>{
-          let matchingSub=getChannel(sub)
+    users.userData.forEach((user) => {
+      if (user.name === activeProfile) {
+        user.subscribers.forEach((sub) => {
+          let matchingSub = getChannel(sub);
 
-          subsHtml+=`
+          subsHtml += `
           <div class="profile">
             <img src=${matchingSub.profilePic} />
             <p>${matchingSub.name}</p>
           </div>
-          `
-        })
+          `;
+        });
       }
-    })
-    return subsHtml
+    });
+    return subsHtml;
   }
-  
-  document.querySelector('.js-sub-container').innerHTML=loadSubscribers()
+
+  document.querySelector(".js-sub-container").innerHTML = loadSubscribers();
 
   const body = document.body;
   const overlay = document.querySelector(".overlay");
@@ -240,5 +239,7 @@ console.log(totalLikes);
         description.classList.add("expanded");
       }
     });
+
+  changeHeader(activeProfile, renderPage);
 }
 renderPage();

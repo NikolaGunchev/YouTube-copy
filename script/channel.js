@@ -2,9 +2,9 @@ import { users } from "./userData.js";
 import { getVideo } from "../data/videos.js";
 import { getChannel } from "../data/channels.js";
 import { changeHeader } from "./utils/changeHeader.js";
-let activeProfile = JSON.parse(localStorage.getItem("active"));
 
 function renderPage() {
+  let activeProfile = JSON.parse(localStorage.getItem("active"));
   let historyHtml = "";
   let likedHtml = "";
 
@@ -18,11 +18,15 @@ function renderPage() {
         historyHtml += `
         <div class="video">
           <div class="image-box">
+          <a class='video-link' href='watch.html?videoId=${matchingVideo.id}'>
             <img src=${matchingVideo.thumbnail}>
+          </a>
             <div class="video-time">${matchingVideo.videoTime}</div>
           </div>
           <div class="video-title">
+          <a class='video-link' href='watch.html?videoId=${matchingVideo.id}'>
             <p>${matchingVideo.title}</p>
+          </a>
             <img src="./pictures/icons/youtube-vertical-dots.svg" />
           </div>
           <div class="video-info">
@@ -42,11 +46,15 @@ function renderPage() {
         likedHtml += `
         <div class="video">
           <div class="image-box">
+          <a class='video-link' href='watch.html?videoId=${matchingVideo.id}'>
             <img src=${matchingVideo.thumbnail}>
+          </a>
             <div class="video-time">${matchingVideo.videoTime}</div>
           </div>
           <div class="video-title">
+          <a class='video-link' href='watch.html?videoId=${matchingVideo.id}'>
             <p>${matchingVideo.title}</p>
+          </a>
             <img src="./pictures/icons/youtube-vertical-dots.svg" />
           </div>
           <div class="video-info">
@@ -101,8 +109,8 @@ function renderPage() {
 
   document.querySelector(".js-sub-container").innerHTML = loadSubscribers();
 
-  console.log('hello');
+  changeHeader(activeProfile, renderPage);
 }
 renderPage();
 
-changeHeader(activeProfile, renderPage);
+

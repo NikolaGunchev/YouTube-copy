@@ -2,27 +2,32 @@ import { users } from "./userData.js";
 import { getVideo } from "../data/videos.js";
 import { getChannel } from "../data/channels.js";
 import { changeHeader } from "./utils/changeHeader.js";
-let activeProfile = JSON.parse(localStorage.getItem("active"));
 
 function renderPage() {
+  let activeProfile = JSON.parse(localStorage.getItem("active"));
   let html = "";
   console.log(users.userData);
-  
-  users.userData.forEach(user => {
-    if (user.name===activeProfile) {
-      user.history.forEach(video =>{
-        let matchingVideo=getVideo(video)
-        
+
+  users.userData.forEach((user) => {
+    if (user.name === activeProfile) {
+      user.history.forEach((video) => {
+        let matchingVideo = getVideo(video);
+
         html += `
         <div class="video">
           <div class="video-box">
-            <img src=${matchingVideo.thumbnail}>
+          <a href='watch.html?videoId=${matchingVideo.id}'>
+          <img src=${matchingVideo.thumbnail}>
+          </a>
             <div class="video-time">${matchingVideo.videoTime}</div>
           </div>
           <div class="text">
             <div class="video-title">
               <div>
-                <p>${matchingVideo.title}</p>
+              <a href='watch.html?videoId=${matchingVideo.id}'>
+                <p class='main-title'>${matchingVideo.title}</p>
+              </a>
+                <p class='history-channel-name'>${matchingVideo.channel} &middot; ${matchingVideo.views}</p>
               </div>
               <div class="title-img">
                 <div class="cross-container js-cross" data-video-id='${matchingVideo.id}'>
@@ -34,67 +39,64 @@ function renderPage() {
               </div>
             </div>
             <div class="under-title">
-              <p>${matchingVideo.channel} &middot; ${matchingVideo.views}</p>
               <p class="description">Description of the video</p>
             </div>
           </div>
         </div>
         `;
-      })
+      });
     }
   });
 
+  document.querySelector(".js-video-list").innerHTML = html;
 
-document.querySelector('.js-video-list').innerHTML=html
+  document.querySelectorAll(".js-cross").forEach((cross) => {
+    cross.addEventListener("click", () => {
+      const videoId = cross.dataset.videoId;
+      users.removeFromHistory(videoId, activeProfile);
+      renderPage();
+    });
+  });
 
-document.querySelectorAll('.js-cross').forEach(cross =>{
-  cross.addEventListener('click',()=>{
-    const videoId=cross.dataset.videoId
-    users.removeFromHistory(videoId,activeProfile)
-    renderPage()
-  })
-})
+  changeHeader(activeProfile, renderPage);
 
-changeHeader(activeProfile,renderPage)
-}
-
-function changeSidebar() {
-  const sideBarContainer = document.querySelector(".sidebar-container");
-  const body = document.body;
-  if (sideBarContainer.classList.contains("short-sidebar-active")) {
-    sideBarContainer.classList.remove("short-sidebar-active");
-    body.classList.remove("short-sidebar-active");
-  } else {
-    sideBarContainer.classList.add("short-sidebar-active");
-    body.classList.add("short-sidebar-active");
+  function changeSidebar() {
+    const sideBarContainer = document.querySelector(".sidebar-container");
+    const body = document.body;
+    if (sideBarContainer.classList.contains("short-sidebar-active")) {
+      sideBarContainer.classList.remove("short-sidebar-active");
+      body.classList.remove("short-sidebar-active");
+    } else {
+      sideBarContainer.classList.add("short-sidebar-active");
+      body.classList.add("short-sidebar-active");
+    }
   }
-}
 
-document.querySelector(".hamburger-menu").addEventListener("click", () => {
-  changeSidebar();
-});
+  document.querySelector(".hamburger-menu").addEventListener("click", () => {
+    changeSidebar();
+  });
 
-function loadSubscribers(){
-  let subsHtml=``
+  function loadSubscribers() {
+    let subsHtml = ``;
 
-  users.userData.forEach(user=>{
-    if (user.name===activeProfile) {
-      user.subscribers.forEach(sub=>{
-        let matchingSub=getChannel(sub)
+    users.userData.forEach((user) => {
+      if (user.name === activeProfile) {
+        user.subscribers.forEach((sub) => {
+          let matchingSub = getChannel(sub);
 
-        subsHtml+=`
+          subsHtml += `
         <div class="profile">
           <img src=${matchingSub.profilePic} />
           <p>${matchingSub.name}</p>
         </div>
-        `
-      })
-    }
-  })
-  return subsHtml
+        `;
+        });
+      }
+    });
+    return subsHtml;
+  }
+
+  document.querySelector(".js-sub-container").innerHTML = loadSubscribers();
+  
 }
-
-document.querySelector('.js-sub-container').innerHTML=loadSubscribers()
 renderPage();
-
-

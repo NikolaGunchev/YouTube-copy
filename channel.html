@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="styles/header.css" />
     <link rel="stylesheet" href="styles/channel-sidebar.css" />
     <link rel="stylesheet" href="styles/channel-general.css" />
-    <link rel="stylesheet" href="styles/channel.css">
+    <link rel="stylesheet" href="styles/channel.css" />
   </head>
   <body>
     <header class="header">
@@ -81,10 +81,12 @@
     <nav class="sidebar-container">
       <div class="sidebar">
         <div class="container">
-          <div class="sidebar-thing">
-            <img src="./pictures/sidebar-icons/home.svg" />
-            <p>Home</p>
-          </div>
+          <a href="youtube.html">
+            <div class="sidebar-thing">
+              <img src="./pictures/sidebar-icons/home.svg" />
+              <p>Home</p>
+            </div>
+          </a>
           <div class="sidebar-thing">
             <img src="./pictures/sidebar-icons/subscriptions.svg" />
             <p>Subscriptions</p>
@@ -117,15 +119,16 @@
         </div>
         <div class="container">
           <p class="subs">Subscription</p>
-          <div class="js-sub-container">
-          </div>
+          <div class="js-sub-container"></div>
         </div>
       </div>
       <div class="short-sidebar">
-        <div class="short-sidebar-thing">
-          <img src="pictures/sidebar-icons/home.svg" />
-          <p>Home</p>
-        </div>
+        <a href="youtube.html">
+          <div class="short-sidebar-thing">
+            <img src="pictures/sidebar-icons/home.svg" />
+            <p>Home</p>
+          </div>
+        </a>
         <div class="short-sidebar-thing">
           <img src="pictures/sidebar-icons/subscriptions.svg" />
           <p>Subscribers</p>
@@ -139,7 +142,7 @@
     <main class="outer-div">
       <div class="main-container">
         <div class="header-container">
-          <img src="pictures/profile-pic/profile-user.png">
+          <img src="pictures/profile-pic/profile-user.png" />
           <div>
             <p class="main-name">Active user</p>
             <p class="sub-name">@activeuser</p>
@@ -147,35 +150,14 @@
         </div>
         <div class="section">
           <p class="section-name">History</p>
-          <div class="video-grid js-history-grid">     
-          </div>
+          <div class="video-grid js-history-grid"></div>
         </div>
         <div class="section">
           <p class="section-name">Liked videos</p>
           <div class="video-grid js-liked-grid">
             <div class="video">
               <div class="image-box">
-                <img src="pictures/thumbnails/thumbnail-3.webp">
-                <div class="video-time">19:23</div>
-              </div>
-              <div class="video-title">
-                <p>I like my ginger lemonade spinning</p>
-                <img src="./pictures/icons/youtube-vertical-dots.svg" />
-              </div>
-              <div class="video-info">
-                <p>Dr ding molecular cuisine</p>
-                <p>89M views</p>
-                <p>&middot; 2 years ago</p>
-              </div>
-            </div>    
-          </div>
-        </div>
-        <div class="section">
-          <p class="section-name">Watch later</p>
-          <div class="video-grid">
-            <div class="video">
-              <div class="image-box">
-                <img src="pictures/thumbnails/thumbnail-3.webp">
+                <img src="pictures/thumbnails/thumbnail-3.webp" />
                 <div class="video-time">19:23</div>
               </div>
               <div class="video-title">
@@ -188,11 +170,29 @@
                 <p>&middot; 2 years ago</p>
               </div>
             </div>
-            
+          </div>
+        </div>
+        <div class="section">
+          <p class="section-name">Watch later</p>
+          <div class="video-grid">
+            <div class="video">
+              <div class="image-box">
+                <img src="pictures/thumbnails/thumbnail-3.webp" />
+                <div class="video-time">19:23</div>
+              </div>
+              <div class="video-title">
+                <p>I like my ginger lemonade spinning</p>
+                <img src="./pictures/icons/youtube-vertical-dots.svg" />
+              </div>
+              <div class="video-info">
+                <p>Dr ding molecular cuisine</p>
+                <p>89M views</p>
+                <p>&middot; 2 years ago</p>
+              </div>
+            </div>
           </div>
         </div>
       </div>
-      
     </main>
 
     <script src="script/channel.js" type="module"></script>

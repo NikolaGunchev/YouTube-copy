@@ -116,12 +116,11 @@ h1 {
 
 .video-title {
   display: flex;
-  align-items: center;
   justify-content: space-between;
   cursor: pointer;
 }
 
-.video-title p {
+.video-title .main-title {
   font-size: 18px;
   display: -webkit-box;
   -webkit-box-orient: vertical;
@@ -138,6 +137,14 @@ h1 {
   text-overflow: ellipsis;
 }
 
+.history-channel-name{
+  font-size: 13px;
+  color: gray;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-weight: 300;
+}
 .description {
   margin-top: 15px;
   display: -webkit-box;
@@ -162,10 +169,16 @@ h1 {
 
 .title-img img {
   padding: 3px;
+  max-width: 70px;
+}
+
+.title-img{
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .cross-container {
-  display: inline-block;
   position: relative;
 }
 

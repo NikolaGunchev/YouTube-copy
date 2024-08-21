@@ -180,6 +180,7 @@
   min-width: 182px;
   max-width: 182px;
   position: relative;
+  cursor: pointer;
 }
 .image-box-video img {
   width: 100%;
