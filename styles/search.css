@@ -3,36 +3,78 @@
   justify-content: center;
   width: 100%;
   height: 100%;
-  padding-left: 120px;
-  background-color: aquamarine;
 }
 
 .main-container{
-  
+  width: 1270px;
+  padding-left: 230px;
 }
+
 .channel-result{
   display: flex;
   align-items: center;
+  height: 150px;
+  position: relative;
+}
+
+.channel-result::before{
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  height: 1px;
+  width: 100%;
+  background-color: rgba(209, 209, 209, 0.322);
 }
 
 .image-box{
   display: flex;
   align-items: center;
-  width: 150px;
-  background-color: red;
-  
+  justify-content: center;
+  width: 500px;
+  height: 100%;
+  cursor: pointer;
 }
 
 .image-box img{
- 
+ border-radius: 80px;
+ width: 130px;
 }
 
 .channel-text{
   flex: 1;
-  width: 1000px;
-  min-width: 680px;
+  height: 100%;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
-.subcribe-container{
-  
+.channel-name{
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.channel-info{
+  font-size: 12px;
+  color: gray;
+}
+
+.sub-button{
+  background-color: black;
+  color: white;
+  border: none;
+  border-radius: 22px;
+  padding: 10px 13px;
+  font-weight: 500;
+  font-size: 15px;
+  cursor: pointer;
+}
+
+.sub-button:hover{
+  background-color: rgb(59, 59, 59);
+}
+.sub-button:active{
+  background-color: rgb(87, 87, 87);
 }
