@@ -7,7 +7,20 @@
 
 .main-container{
   width: 1270px;
-  padding-left: 230px;
+  padding-left: 240px;
+  padding-right: 10px;
+}
+
+@media(max-width:1300px){
+  .main-container{
+    padding-left: 0px;
+  }
+}
+
+@media(max-width:660px){
+  .subscribe-container{
+    display: none;
+  }
 }
 
 .channel-result{
@@ -17,7 +30,11 @@
   position: relative;
 }
 
-.channel-result::before{
+.channel-box{
+  position: relative;
+  margin-bottom: 30px;
+}
+.channel-box::before{
   content: "";
   position: absolute;
   bottom: 0;
@@ -28,22 +45,24 @@
   background-color: rgba(209, 209, 209, 0.322);
 }
 
-.image-box{
+.channel-result .image-box{
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 500px;
+  flex: 1.64;
   height: 100%;
+  min-width: 240px;
   cursor: pointer;
+  
 }
 
-.image-box img{
+.channel-result .image-box img{
  border-radius: 80px;
- width: 130px;
+ width: 130px;;
 }
 
 .channel-text{
-  flex: 1;
+  flex: 2;
   height: 100%;
   cursor: pointer;
   display: flex;
@@ -77,4 +96,91 @@
 }
 .sub-button:active{
   background-color: rgb(87, 87, 87);
+}
+
+.video{
+  display: flex;
+  margin-bottom: 10px;
+}
+
+.video .image-box{ 
+  cursor: pointer;
+  position: relative;
+  flex: 1.4;
+  min-width: 240px;
+  margin-right: 15px;
+}
+
+.video .image-box img{
+  border-radius: 15px;
+  width: 100%;
+}
+
+.video-info{
+  flex: 2;
+  cursor: pointer;
+}
+
+.title{
+  display: flex;
+  justify-content: space-between;
+  font-size: 20px;
+  margin-bottom: 5px;
+}
+
+.title p{
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2; 
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.dots{
+  width: 20px;
+  padding: 5px 5px;
+  align-self: flex-start;
+  cursor: pointer;
+}
+
+.dots:active{
+  border-radius: 50px;
+  background-color: rgb(214, 214, 214);
+}
+
+.video-data{
+  font-size: 12px;
+  color: gray;
+  margin-bottom: 15px;
+}
+
+.video-channel{
+  display: flex;
+  column-gap: 10px;
+  margin-bottom: 20px;
+}
+
+.video-channel .image-boxa{
+  width: 25px;
+  object-fit: contain;
+}
+.video-channel img{
+  width: 100%;
+  border-radius: 15px;
+}
+
+.video-channel p{
+  font-size: 12px;
+  color: gray;
+  align-self: center;
+}
+
+.description{
+  font-size: 12px;
+  color: gray;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2; 
+  overflow: hidden;
+  text-overflow: ellipsis;
 }

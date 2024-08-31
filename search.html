@@ -24,8 +24,8 @@
         </a>
       </div>
       <div class="middle-section">
-        <input type="text" class="searchBox" placeholder="Search" />
-        <button class="search-button">
+        <input type="text" class="searchBox js-searchBox" placeholder="Search" spellcheck="false"/>
+        <button class="search-button js-search-button">
           <img class="search-icon" src="./pictures/icons/search.svg" />
           <div class="tooltip">Search</div>
         </button>
@@ -141,19 +141,13 @@
     </nav>
     <main class="outer-div">
       <div class="main-container">
-        <div class="channel-result">
-          <div class="image-box">
-            <img src="pictures/profile-pic/channel-11.jpeg">
-          </div>
-          <div class="channel-text">
-            <p class="channel-name">Zy0x</p>
-            <p class="channel-info">@Zy0x &#183 123K subscribers</p>
-          </div>
-          <div class="subscribe-container">
-            <button class="sub-button">Subscribe</button>
-          </div>
+        <div class="channel-box js-channel-box">
+          
+        </div>
+        <div class="videos-list js-videos-list">
         </div>
       </div>
     </main>
+    <script src="script/search.js" type="module"></script>
   </body>
 </html>

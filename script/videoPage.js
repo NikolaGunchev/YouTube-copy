@@ -3,6 +3,9 @@ import { shuffleArray } from "./utils/shuffle.js";
 import { getChannel } from "../data/channels.js";
 import { users } from "./userData.js";
 import { changeHeader } from "./utils/changeHeader.js";
+import { loadSubscribers } from "./utils/loadSubscribers.js";
+
+import { searchBar } from "./utils/searchBar.js";
 
 let likes = JSON.parse(localStorage.getItem("likes")) || [];
 console.log(users.userData);
@@ -188,27 +191,9 @@ function renderPage() {
 
   users.changeSubButton(activeProfile, subscribeBut, matchingChannel);
 
-  function loadSubscribers() {
-    let subsHtml = ``;
+  document.querySelector(".js-sub-container").innerHTML = loadSubscribers(users,getChannel,activeProfile);
 
-    users.userData.forEach((user) => {
-      if (user.name === activeProfile) {
-        user.subscribers.forEach((sub) => {
-          let matchingSub = getChannel(sub);
-
-          subsHtml += `
-          <div class="profile">
-            <img src=${matchingSub.profilePic} />
-            <p>${matchingSub.name}</p>
-          </div>
-          `;
-        });
-      }
-    });
-    return subsHtml;
-  }
-
-  document.querySelector(".js-sub-container").innerHTML = loadSubscribers();
+  searchBar();
 
   const body = document.body;
   const overlay = document.querySelector(".overlay");

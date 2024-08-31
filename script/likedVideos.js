@@ -2,6 +2,9 @@ import { users } from "./userData.js";
 import { getVideo } from "../data/videos.js";
 import { getChannel } from "../data/channels.js";
 import { changeHeader } from "./utils/changeHeader.js";
+import { searchBar } from "./utils/searchBar.js";
+import { loadSubscribers } from "./utils/loadSubscribers.js";
+import { changeSidebar } from "./utils/changeSidebar.js";
 console.log(users.userData);
 
 function renderPage() {
@@ -68,44 +71,14 @@ function renderPage() {
   document.querySelector(".js-first-video-box").innerHTML = bigHtml;
   document.querySelector(".js-video-list").innerHTML = smallHtml;
 
-  function changeSidebar() {
-    const sideBarContainer = document.querySelector(".sidebar-container");
-    const body = document.body;
-    if (sideBarContainer.classList.contains("short-sidebar-active")) {
-      sideBarContainer.classList.remove("short-sidebar-active");
-      body.classList.remove("short-sidebar-active");
-    } else {
-      sideBarContainer.classList.add("short-sidebar-active");
-      body.classList.add("short-sidebar-active");
-    }
-  }
-
   document.querySelector(".hamburger-menu").addEventListener("click", () => {
     changeSidebar();
   });
 
-  function loadSubscribers() {
-    let subsHtml = ``;
-
-    users.userData.forEach((user) => {
-      if (user.name === activeProfile) {
-        user.subscribers.forEach((sub) => {
-          let matchingSub = getChannel(sub);
-
-          subsHtml += `
-          <div class="profile">
-            <img src=${matchingSub.profilePic} />
-            <p>${matchingSub.name}</p>
-          </div>
-          `;
-        });
-      }
-    });
-    return subsHtml;
-  }
-
-  document.querySelector(".js-sub-container").innerHTML = loadSubscribers();
+  document.querySelector(".js-sub-container").innerHTML = loadSubscribers(users,getChannel,activeProfile);
 
   changeHeader(activeProfile, renderPage);
+
+  searchBar()
 }
 renderPage();
