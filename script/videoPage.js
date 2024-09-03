@@ -43,7 +43,7 @@ function renderPage() {
               <img src=${matchingChannel.profilePic} />
               <div class="channel">
                 <p class="channel-name">${matchingChannel.name}</p>
-                <p class="channel-subs">${matchingChannel.subsribers} subscribers</p>
+                <p class="channel-subs">${matchingChannel.subscribers} subscribers</p>
               </div>
               <button class='js-subscribe'>Subscribe</button>
             </div>

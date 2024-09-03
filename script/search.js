@@ -17,6 +17,7 @@ function renderPage() {
     let matchingVideo = getVideo(video.id);
     let matchingChannel = getChannel(matchingVideo.channel);
     let currentVideoChannel=video.channel.replace(/\s/g, '');
+    let currentVideoTitle=video.title.replace(/\s/g, '');
     searchResult=searchResult.replace(/\s/g, '');
 
     //the search works in a very basic way so you need to be very specific if u want to find something, because the videos dont have things like tags or keywords or any kind of algorithm that can find them
@@ -39,7 +40,7 @@ function renderPage() {
       document.querySelector('.js-channel-box').innerHTML=channelHtml
       subscribeBut(matchingChannel)
     }
-    if (video.title.toLowerCase().includes(searchResult.toLocaleLowerCase()) 
+    if (currentVideoTitle.toLowerCase().includes(searchResult.toLocaleLowerCase()) 
       || currentVideoChannel.toLowerCase().includes(searchResult.toLocaleLowerCase())) {
         html+=`
         <div class='video'>

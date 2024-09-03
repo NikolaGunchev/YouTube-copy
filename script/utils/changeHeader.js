@@ -26,9 +26,10 @@ export function changeHeader(activeProfile, func) {
         name = document.querySelector(".js-name-popup");
         hashName = document.querySelector(".js-hash-name-popup");
         name.innerHTML = activeProfile;
-        hashName.innerHTML = `@${activeProfile
-          .replace(/\s+/g, "")
-          .toLowerCase()}`;
+        let nameNoSpace=activeProfile
+        .replace(/\s+/g, "")
+        .toLowerCase()
+        hashName.innerHTML = `@${nameNoSpace}`;
       }
     });
 

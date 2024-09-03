@@ -60,9 +60,10 @@ function renderPage() {
         user.history.forEach((video) => {
           let matchingVideo = getVideo(video);
           let currentVideoChannel=matchingVideo.channel.replace(/\s/g, '');
+          let currentVideoTitle=matchingVideo.title.replace(/\s/g, '');
           searchResult=searchResult.replace(/\s/g, '');
   
-          if (matchingVideo.title.toLowerCase().includes(searchResult.toLocaleLowerCase()) 
+          if (currentVideoTitle.toLowerCase().includes(searchResult.toLocaleLowerCase()) 
             || currentVideoChannel.toLowerCase().includes(searchResult.toLocaleLowerCase())) {
               html += `
               <div class="video">

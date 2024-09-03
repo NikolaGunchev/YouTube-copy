@@ -9,8 +9,11 @@ import { changeSidebar } from "./utils/changeSidebar.js";
 
 console.log(users.userData);
 
+
+
 function renderPage() {
-  let activeProfile = JSON.parse(localStorage.getItem("active"));
+  let activeProfile=JSON.parse(localStorage.getItem('active')) || 'notLogged'
+  console.log(activeProfile);
   let html = "";
   let videosCopy = videos;
   shuffleArray(videosCopy);
