@@ -12,8 +12,8 @@
     <title>Youtube</title>
     <link rel="stylesheet" href="styles/header.css" />
     <link rel="stylesheet" href="styles/channel-sidebar.css" />
-    <link rel="stylesheet" href="styles/channel-general.css" />
-    <link rel="stylesheet" href="styles/search.css" />
+    <link rel="stylesheet" href="styles/general-history.css">
+    <link rel="stylesheet" href="styles/likedVideos.css">
   </head>
   <body>
     <header class="header">
@@ -24,7 +24,12 @@
         </a>
       </div>
       <div class="middle-section">
-        <input type="text" class="searchBox js-searchBox" placeholder="Search" spellcheck="false"/>
+        <input
+          type="text"
+          class="searchBox js-searchBox"
+          placeholder="Search"
+          spellcheck="false"
+        />
         <button class="search-button js-search-button">
           <img class="search-icon" src="./pictures/icons/search.svg" />
           <div class="tooltip">Search</div>
@@ -78,6 +83,7 @@
         </div>
       </div>
     </header>
+
     <nav class="sidebar-container">
       <div class="sidebar">
         <div class="container">
@@ -112,12 +118,10 @@
               <p>Watch later</p>
             </div>
           </a>
-          <a href="likedVideos.html">
-            <div class="sidebar-thing">
-              <img src="./pictures/icons/youtube-like.svg" />
-              <p>Liked videos</p>
-            </div>
-          </a>
+          <div class="sidebar-thing">
+            <img src="./pictures/icons/youtube-like.svg" />
+            <p>Liked videos</p>
+          </div>
         </div>
         <div class="container">
           <p class="subs">Subscription</p>
@@ -125,12 +129,10 @@
         </div>
       </div>
       <div class="short-sidebar">
-        <a href="youtube.html">
-          <div class="short-sidebar-thing">
-            <img src="pictures/sidebar-icons/home.svg" />
-            <p>Home</p>
-          </div>
-        </a>
+        <div class="short-sidebar-thing">
+          <img src="pictures/sidebar-icons/home.svg" />
+          <p>Home</p>
+        </div>
         <div class="short-sidebar-thing">
           <img src="pictures/sidebar-icons/subscriptions.svg" />
           <p>Subscribers</p>
@@ -141,15 +143,12 @@
         </div>
       </div>
     </nav>
-    <main class="outer-div">
-      <div class="main-container">
-        <div class="channel-box js-channel-box">
-          
-        </div>
-        <div class="videos-list js-videos-list">
-        </div>
+
+    <main class="main">
+      <div class="first-video-box js-first-video-box">
+      </div>
+      <div class="videos-list js-video-list">
       </div>
     </main>
-    <script src="script/search.js" type="module"></script>
   </body>
 </html>

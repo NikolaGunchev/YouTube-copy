@@ -9,16 +9,18 @@ import { searchBar } from "./utils/searchBar.js";
 function renderPage() {
   let activeProfile = JSON.parse(localStorage.getItem("active"));
   const url = new URL(window.location.href);
-  const searchResult = url.searchParams.get("search_query");
+  let searchResult = url.searchParams.get("search_query");
 
   let html = "";
   let channelHtml=''
   videos.forEach(video=>{
     let matchingVideo = getVideo(video.id);
     let matchingChannel = getChannel(matchingVideo.channel);
+    let currentVideoChannel=video.channel.replace(/\s/g, '');
+    searchResult=searchResult.replace(/\s/g, '');
 
     //the search works in a very basic way so you need to be very specific if u want to find something, because the videos dont have things like tags or keywords or any kind of algorithm that can find them
-    if (video.channel.toLowerCase().includes(searchResult.toLocaleLowerCase())) {
+    if (currentVideoChannel.toLowerCase().includes(searchResult.toLocaleLowerCase())) {
       channelHtml+=`
       <div class="channel-result">
       
@@ -38,7 +40,7 @@ function renderPage() {
       subscribeBut(matchingChannel)
     }
     if (video.title.toLowerCase().includes(searchResult.toLocaleLowerCase()) 
-      || video.channel.toLowerCase().includes(searchResult.toLocaleLowerCase())) {
+      || currentVideoChannel.toLowerCase().includes(searchResult.toLocaleLowerCase())) {
         html+=`
         <div class='video'>
             <div class="image-box">

@@ -27,6 +27,7 @@ class User {
       password: password,
       likedVideos: [],
       history: [],
+      watchLater:[],
       subscribers: [],
     });
     this.saveUserDataToStorage();
@@ -84,6 +85,24 @@ class User {
         });
         if (!have) {
           user.likedVideos.unshift(id);
+        }
+      }
+    });
+    this.saveUserDataToStorage();
+  }
+
+  watchLaterButton(name,id){
+    let have = false;
+    this.userData.forEach((user) => {
+      if (user.name === name) {
+        user.watchLater.forEach((videoId, i) => {
+          if (videoId === id) {
+            user.watchLater.splice(i, 1);
+            have = true;
+          }
+        });
+        if (!have) {
+          user.watchLater.unshift(id);
         }
       }
     });

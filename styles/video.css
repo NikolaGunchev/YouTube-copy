@@ -23,7 +23,6 @@
   }
 }
 
-
 .thumbnail {
   width: 100%;
 }
@@ -73,4 +72,55 @@
 .video-link{
   text-decoration: none;
   color: black;
+}
+
+.information-header{
+  display: flex;
+  justify-content: space-between;
+}
+
+.video-settings{
+  width: 22px;
+  padding: 5px;
+  border-radius: 20px;
+  cursor: pointer;
+}
+
+.video-settings:active{
+  background-color: rgb(201, 201, 201);
+}
+
+.video-settings-box{
+  position: relative;
+}
+
+.settings-popup{
+  position: absolute;
+  width: 300px;
+  border-radius: 10px;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.15);
+  display: none;
+  background-color: white;
+  z-index: 100;
+}
+
+.popup-setting{
+  display: flex;
+  padding: 10px;
+  font-size: 16px;
+  font-family: Roboto,Arial;
+  align-items: center;
+  cursor: pointer;
+  margin: 5px 0px 5px 0px;
+}
+.popup-setting:hover{
+  background-color: rgb(224, 224, 224);
+}
+.popup-setting:active{
+  background-color: rgb(202, 202, 202);
+}
+
+.popup-setting img{
+  width: 25px;
+  margin-right: 10px;
 }

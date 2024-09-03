@@ -75,10 +75,14 @@ function renderPage() {
     changeSidebar();
   });
 
-  document.querySelector(".js-sub-container").innerHTML = loadSubscribers(users,getChannel,activeProfile);
+  document.querySelector(".js-sub-container").innerHTML = loadSubscribers(
+    users,
+    getChannel,
+    activeProfile
+  );
 
   changeHeader(activeProfile, renderPage);
 
-  searchBar()
+  searchBar();
 }
 renderPage();

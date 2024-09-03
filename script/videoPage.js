@@ -173,16 +173,6 @@ function renderPage() {
     }
   }
 
-  // function getVideoLikes(id){
-  //   let matchingVideoLike
-  //   likes.forEach(video =>{
-  //     if (video.id===id) {
-  //       matchingVideoLike=video
-  //     }
-  //   })
-  //   return matchingVideoLike
-  // }
-
   let subscribeBut = document.querySelector(".js-subscribe");
   subscribeBut.addEventListener("click", () => {
     users.addToSubscribers(activeProfile, matchingChannel.name);
@@ -191,7 +181,11 @@ function renderPage() {
 
   users.changeSubButton(activeProfile, subscribeBut, matchingChannel);
 
-  document.querySelector(".js-sub-container").innerHTML = loadSubscribers(users,getChannel,activeProfile);
+  document.querySelector(".js-sub-container").innerHTML = loadSubscribers(
+    users,
+    getChannel,
+    activeProfile
+  );
 
   searchBar();
 

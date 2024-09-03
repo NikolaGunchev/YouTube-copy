@@ -11,9 +11,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Youtube</title>
   <link rel="stylesheet" href="styles/header.css" />
-  <link rel="stylesheet" href="styles/channel-sidebar.css" />
+  <link rel="stylesheet" href="styles/history-sidebar.css" />
   <link rel="stylesheet" href="styles/general-history.css">
-  <link rel="stylesheet" href="styles/likedVideos.css">
+  <link rel="stylesheet" href="styles/history.css">
 </head>
 <body>
   <header class="header">
@@ -106,17 +106,19 @@
             <img src="./pictures/icons/histoy.svg" />
             <p>History</p>
           </div>
-        </a>   
+        </a>
         <a href="watchLater.html">
           <div class="sidebar-thing">
             <img src="./pictures/icons/watch-later.svg" />
             <p>Watch later</p>
           </div>
         </a>
-        <div class="sidebar-thing">
-          <img src="./pictures/icons/youtube-like.svg" />
-          <p>Liked videos</p>
-        </div>
+        <a href="likedVideos.html">
+          <div class="sidebar-thing">
+            <img src="./pictures/icons/youtube-like.svg" />
+            <p>Liked videos</p>
+          </div>
+        </a>
       </div>
       <div class="container">
         <p class="subs">Subscription</p>
@@ -125,10 +127,12 @@
       </div>
     </div>
    <div class="short-sidebar">
-    <div class="short-sidebar-thing">
-      <img src="pictures/sidebar-icons/home.svg">
-      <p>Home</p>
-    </div>
+    <a href="youtube.html">
+      <div class="short-sidebar-thing">
+        <img src="pictures/sidebar-icons/home.svg" />
+        <p>Home</p>
+      </div>
+    </a>
     <div class="short-sidebar-thing">
       <img src="pictures/sidebar-icons/subscriptions.svg">
       <p>Subscribers</p>
@@ -140,12 +144,25 @@
    </div>
   </nav>
 
-  <main class="main">
-    <div class="first-video-box js-first-video-box">
+  <main >
+    <div class="main-container">
+    <div class="history-container">
+      <h1>Watch history</h1>
+      <div class="videos-list js-video-list">
+      </div>
     </div>
-    <div class="videos-list js-video-list">
+    <div class="history-settings">
+      <div class="input-container">
+        <img src="pictures/icons/search.svg" class="button-search">
+        <input type="text" placeholder="Search watch history" class="input-search">
+      </div>
+      <div class="setting">
+        <img src="pictures/icons/trashcan.svg">
+        <p>Clear all watch history</p>
+      </div>
     </div>
+  </div>
   </main>
-<script src="./script/likedVideos.js" type="module"></script>
+  <script src="./script/history.js" type="module"></script>
 </body>
 </html>

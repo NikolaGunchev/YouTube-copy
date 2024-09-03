@@ -10,14 +10,14 @@ function renderPage() {
   let activeProfile = JSON.parse(localStorage.getItem("active"));
   let historyHtml = "";
   let likedHtml = "";
-  let showUserHtml='';
+  let showUserHtml = "";
 
   users.userData.forEach((user) => {
     if (user.name === activeProfile) {
-      showUserHtml=`
+      showUserHtml = `
       <p class="main-name">${activeProfile}</p>
       <p class="sub-name">@${activeProfile}</p>
-      `
+      `;
 
       for (let i = 0; i < Math.min(user.history.length, 6); i++) {
         const video = user.history[i];
@@ -77,7 +77,7 @@ function renderPage() {
     }
   });
 
-  document.querySelector('.js-current-channel-user').innerHTML=showUserHtml;
+  document.querySelector(".js-current-channel-user").innerHTML = showUserHtml;
   document.querySelector(".js-history-grid").innerHTML = historyHtml;
   document.querySelector(".js-liked-grid").innerHTML = likedHtml;
 
@@ -85,13 +85,14 @@ function renderPage() {
     changeSidebar();
   });
 
-  document.querySelector(".js-sub-container").innerHTML =
-  loadSubscribers(users,getChannel,activeProfile);
+  document.querySelector(".js-sub-container").innerHTML = loadSubscribers(
+    users,
+    getChannel,
+    activeProfile
+  );
 
   changeHeader(activeProfile, renderPage);
 
   searchBar();
 }
 renderPage();
-
-
