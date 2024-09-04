@@ -9,11 +9,8 @@ import { changeSidebar } from "./utils/changeSidebar.js";
 
 console.log(users.userData);
 
-
-
 function renderPage() {
-  let activeProfile=JSON.parse(localStorage.getItem('active')) || 'notLogged'
-  console.log(activeProfile);
+  let activeProfile = JSON.parse(localStorage.getItem("active")) || "notLogged";
   let html = "";
   let videosCopy = videos;
   shuffleArray(videosCopy);
@@ -22,7 +19,7 @@ function renderPage() {
     let matchingVideo = getVideo(video.id);
     let matchingChannel = getChannel(matchingVideo.channel);
     html += `
-<div class="video-preview">
+        <div class="video-preview">
           <div class="image-box">
             <a
             class="video-link"
@@ -51,11 +48,11 @@ function renderPage() {
                   </a>
                 </p>
                 <div class="video-settings-box">
-                  <img src="pictures/icons/youtube-vertical-dots.svg" class="video-settings">
+                  <img src="pictures/icons/youtube-vertical-dots.svg" class="video-settings" data-video-id='${matchingVideo.id}'>
                   <div class="settings-popup">
                     <div class="popup-setting watch-later-option" data-video-id='${matchingVideo.id}'>
                       <img src="pictures/icons/watch-later.svg">
-                      Add video to watch later list
+                      <p class='js-popup-watchLater-text'>Add video to watch later list</p>
                     </div>
                   </div>
                 </div>
@@ -85,43 +82,75 @@ function renderPage() {
   searchBar();
 
   //Show and hide video settings button
-  let popup=document.querySelectorAll('.settings-popup')
-  let settingsBox=document.querySelectorAll('.video-settings')
-  settingsBox.forEach((but,i)=>{
-    but.addEventListener('click',()=>{
-      if (popup[i].style.display === 'none' || popup[i].style.display === '') {
-        popup[i].style.display='block'
-      } else{
-        popup[i].style.display='none'
+  let popup = document.querySelectorAll(".settings-popup");
+  let settingsBox = document.querySelectorAll(".video-settings");
+  let optionText = document.querySelectorAll(".js-popup-watchLater-text");
+  settingsBox.forEach((but, i) => {
+    but.addEventListener("click", () => {
+      
+      const videoId = but.dataset.videoId;
+      let videoFound = false;
+      if (popup[i].style.display === "none" || popup[i].style.display === "") {
+        popup[i].style.display = "block";
+      } else {
+        popup[i].style.display = "none";
       }
-    })
+
+      users.userData.forEach((user) => {
+        if (user.name === activeProfile) {
+          user.watchLater.forEach((video) => {
+            if (video === videoId) {
+              videoFound = true;
+            }
+          });
+
+          if (videoFound) {
+            optionText[i].innerHTML = "Remove video from watch later list";
+          } else {
+            optionText[i].innerHTML = "Add video to watch later list";
+          }
+        }
+      });
+    });
+
     //Hide video settings when clicking anywhere on the screen
-    document.addEventListener('click', function(event) {
+    document.addEventListener("click", function (event) {
       // Check if the click is outside the popup
       if (!popup[i].contains(event.target) && event.target !== but) {
-          popup[i].style.display = 'none';
+        popup[i].style.display = "none";
       }
     });
-  })
+  });
 
-  //not working. maybe cuz of past profiles
-document.querySelectorAll('.watch-later-option').forEach(option=>{
-option.addEventListener('click',()=>{
-  const videoId=option.dataset.videoid;
-  users.userData.forEach(user=>{
-    if (user.name===activeProfile) {
-      user.watchLater.forEach(video=>{
-        if (video===videoId) {
-          users.watchLaterButton(activeProfile,videoId)
-          option.innerHTML='Remove video from watch later list'
-        } else {
-          users.watchLaterButton(activeProfile,videoId)
-          option.innerHTML='Add video from watch later list'
-        }
-      })
-    }
-  })
-})
-})
+  //Adding and removing videos from the watch later list
+  document.querySelectorAll(".watch-later-option").forEach((option, i) => {
+    option.addEventListener("click", () => {
+      let popup = document.querySelectorAll(".settings-popup");
+      const videoId = option.dataset.videoId;
+
+      users.watchLaterButton(activeProfile, videoId);
+      popup[i].style.display = "none";
+    });
+  });
+
+  // lowkey idek
+  // const element = document.querySelectorAll('.video-settings').forEach((setting,i)=>{
+  //   const pop=document.querySelectorAll('.settings-popup')
+  //   
+  //console.log(popup[i].getBoundingClientRect());
+
+  //   const rect=setting.getBoundingClientRect()
+  //   const elementX=rect.left
+  //   const elementWidth=rect.width
+  //   const viewportWidth=window.innderWidth
+    
+  //   const popupWidth=350
+
+  //   if (elementX+popupWidth>viewportWidth) {
+  //     pop[i].style.left=`${elementX-popupWidth}px`
+  //   } else {
+  //     pop[i].style.left=`${elementX+elementWidth}px`
+  //   }
+  // })
 }
 renderPage();

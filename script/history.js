@@ -137,5 +137,15 @@ function renderPage() {
       window.location.href=`history.html?history_search=${input.value}`
     }
   })
+
+  document.querySelector('.setting').addEventListener('click',()=>{  
+    users.userData.forEach(user=>{
+      if (user.name===activeProfile) {     
+        user.history=[]
+        users.saveUserDataToStorage()
+        renderPage()
+      }
+    })
+  })
 }
 renderPage();

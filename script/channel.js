@@ -10,6 +10,7 @@ function renderPage() {
   let activeProfile = JSON.parse(localStorage.getItem("active"));
   let historyHtml = "";
   let likedHtml = "";
+  let laterHtml = "";
   let showUserHtml = "";
 
   users.userData.forEach((user) => {
@@ -74,12 +75,41 @@ function renderPage() {
         </div>
         `;
       }
+
+      for (let i = 0; i < Math.min(user.watchLater.length, 6); i++) {
+        const video = user.watchLater[i];
+
+        let matchingVideo = getVideo(video);
+
+        laterHtml += `
+        <div class="video">
+          <div class="image-box">
+          <a class='video-link' href='watch.html?videoId=${matchingVideo.id}'>
+            <img src=${matchingVideo.thumbnail}>
+          </a>
+            <div class="video-time">${matchingVideo.videoTime}</div>
+          </div>
+          <div class="video-title">
+          <a class='video-link' href='watch.html?videoId=${matchingVideo.id}'>
+            <p>${matchingVideo.title}</p>
+          </a>
+            <img src="./pictures/icons/youtube-vertical-dots.svg" />
+          </div>
+          <div class="video-info">
+            <p>${matchingVideo.channel}</p>
+            <p>${matchingVideo.views} views</p>
+            <p>&middot; ${matchingVideo.date} ago</p>
+          </div>
+        </div>
+        `;
+      }
     }
   });
 
   document.querySelector(".js-current-channel-user").innerHTML = showUserHtml;
   document.querySelector(".js-history-grid").innerHTML = historyHtml;
   document.querySelector(".js-liked-grid").innerHTML = likedHtml;
+  document.querySelector(".js-later-grid").innerHTML = laterHtml;
 
   document.querySelector(".hamburger-menu").addEventListener("click", () => {
     changeSidebar();

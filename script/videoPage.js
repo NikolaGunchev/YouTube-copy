@@ -4,7 +4,6 @@ import { getChannel } from "../data/channels.js";
 import { users } from "./userData.js";
 import { changeHeader } from "./utils/changeHeader.js";
 import { loadSubscribers } from "./utils/loadSubscribers.js";
-
 import { searchBar } from "./utils/searchBar.js";
 
 let likes = JSON.parse(localStorage.getItem("likes")) || [];
@@ -23,11 +22,9 @@ function renderPage() {
     likes.forEach((video) => {
       if (video.id === matchingVideo.id) {
         totalLikes = video.users.length;
-        console.log(totalLikes);
       }
     });
   } else totalLikes = 0;
-  console.log(totalLikes);
 
   let videoHtml = "";
 
@@ -136,8 +133,6 @@ function renderPage() {
           have = true;
           video.users.forEach((user, i) => {
             if (user === activeProfile) {
-              console.log("splice here");
-              console.log(video);
               video.users.splice(i, 1);
               localStorage.setItem("likes", JSON.stringify(likes));
               noSuchUser = false;
@@ -145,8 +140,6 @@ function renderPage() {
             }
           });
           if (noSuchUser) {
-            console.log("add profile to existing video");
-            console.log(video);
             video.users.push(activeProfile);
             localStorage.setItem("likes", JSON.stringify(likes));
             noSuchUser = true;
@@ -155,7 +148,6 @@ function renderPage() {
         }
       });
       if (!have) {
-        console.log("add video in array with current profile");
         likes.push({
           id: matchingVideo.id,
           users: [activeProfile],
@@ -163,8 +155,6 @@ function renderPage() {
         localStorage.setItem("likes", JSON.stringify(likes));
       }
     } else {
-      console.log("add video to start array");
-
       likes.push({
         id: matchingVideo.id,
         users: [activeProfile],
@@ -189,6 +179,8 @@ function renderPage() {
 
   searchBar();
 
+  changeHeader(activeProfile, renderPage);
+
   const body = document.body;
   const overlay = document.querySelector(".overlay");
   const sidebar = document.querySelector(".sidebar-pop");
@@ -211,14 +203,11 @@ function renderPage() {
     .querySelector(".description-container")
     .addEventListener("click", function () {
       const description = document.querySelector(".description");
-
       if (description.classList.contains("expanded")) {
         description.classList.remove("expanded");
       } else {
         description.classList.add("expanded");
       }
     });
-
-  changeHeader(activeProfile, renderPage);
 }
 renderPage();

@@ -95,13 +95,13 @@ class User {
     let have = false;
     this.userData.forEach((user) => {
       if (user.name === name) {
-        user.watchLater.forEach((videoId, i) => {
+        user.watchLater.forEach((videoId, i) => {                 
           if (videoId === id) {
             user.watchLater.splice(i, 1);
             have = true;
           }
         });
-        if (!have) {
+        if (!have) {   
           user.watchLater.unshift(id);
         }
       }

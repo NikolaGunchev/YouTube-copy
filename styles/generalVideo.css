@@ -81,3 +81,7 @@ button{
 input:focus {
   outline: none;
 }
+
+.no-scroll{
+  overflow-y: hidden;
+}
