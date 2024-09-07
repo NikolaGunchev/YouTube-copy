@@ -87,7 +87,6 @@ function renderPage() {
   let optionText = document.querySelectorAll(".js-popup-watchLater-text");
   settingsBox.forEach((but, i) => {
     but.addEventListener("click", () => {
-      
       const videoId = but.dataset.videoId;
       let videoFound = false;
       if (popup[i].style.display === "none" || popup[i].style.display === "") {
@@ -95,6 +94,8 @@ function renderPage() {
       } else {
         popup[i].style.display = "none";
       }
+
+      movePopup(popup[i]);
 
       users.userData.forEach((user) => {
         if (user.name === activeProfile) {
@@ -133,24 +134,15 @@ function renderPage() {
     });
   });
 
-  // lowkey idek
-  // const element = document.querySelectorAll('.video-settings').forEach((setting,i)=>{
-  //   const pop=document.querySelectorAll('.settings-popup')
-  //   
-  //console.log(popup[i].getBoundingClientRect());
+  function movePopup(popup) {
+    const rect = popup.getBoundingClientRect();
+    const elementX = rect.left;
+    const elementWidth = rect.width;
+    const viewportWidth = window.innerWidth;
 
-  //   const rect=setting.getBoundingClientRect()
-  //   const elementX=rect.left
-  //   const elementWidth=rect.width
-  //   const viewportWidth=window.innderWidth
-    
-  //   const popupWidth=350
-
-  //   if (elementX+popupWidth>viewportWidth) {
-  //     pop[i].style.left=`${elementX-popupWidth}px`
-  //   } else {
-  //     pop[i].style.left=`${elementX+elementWidth}px`
-  //   }
-  // })
+    if (elementX + elementWidth > viewportWidth) {
+      popup.style.right = `${0}px`;
+    }
+  }
 }
 renderPage();
