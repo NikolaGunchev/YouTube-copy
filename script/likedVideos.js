@@ -5,10 +5,12 @@ import { changeHeader } from "./utils/changeHeader.js";
 import { searchBar } from "./utils/searchBar.js";
 import { loadSubscribers } from "./utils/loadSubscribers.js";
 import { changeSidebar } from "./utils/changeSidebar.js";
+import { videoLikes } from "./utils/videoLikes.js";
 console.log(users.userData);
 
 function renderPage() {
   let activeProfile = JSON.parse(localStorage.getItem("active"));
+  let likes = JSON.parse(localStorage.getItem("likes"))
   let bigHtml = "";
   let smallHtml = "";
   let firstVideoBox = document.querySelector(".js-first-video-box");
@@ -55,9 +57,14 @@ function renderPage() {
           matchingVideo.views
         } views &middot; ${matchingVideo.date} ago</p>
           </div>
-          <div class="video-options">
-            <img src="pictures/icons/youtube-vertical-dots.svg">
-          </div>
+          <div class='video-options-box'>
+            <img src="pictures/icons/youtube-vertical-dots.svg" class="video-settings">
+              <div class="settings-popup" data-video-id='${matchingVideo.id}'>
+                <div class="popup-setting watch-later-option">
+                  <p class='js-popup-watchLater-text'>Remove video from liked videos</p>
+                </div>
+              </div>
+        </div>
         </div>
       </div>
         `;
@@ -84,5 +91,35 @@ function renderPage() {
   changeHeader(activeProfile, renderPage);
 
   searchBar();
+
+  //hide and show popup
+  let popup=document.querySelectorAll('.settings-popup')
+  document.querySelectorAll('.video-settings').forEach((setting,i)=>{
+    setting.addEventListener('click',()=>{
+      if (popup[i].style.display === "none" || popup[i].style.display === "") {
+        popup[i].style.display = "block";
+      } else {
+        popup[i].style.display = "none";
+      }
+
+      document.addEventListener("click", function (event) {
+        if (!popup[i].contains(event.target) && event.target !== setting) {
+          popup[i].style.display = "none";
+        }
+      });
+    })
+  })
+
+  //remove video from liked
+  popup.forEach(but=>{
+    but.addEventListener('click',()=>{
+      console.log('here');  
+      const videoId = but.dataset.videoId;
+      console.log(videoId);
+      users.addToLikedVideos(activeProfile,videoId)
+      videoLikes(likes,videoId,activeProfile)
+      renderPage()
+    })
+  })
 }
 renderPage();

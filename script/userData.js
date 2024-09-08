@@ -150,21 +150,19 @@ class User {
     });
   }
 
-  /*
+
   dislikeVideo(name, id) {
     this.userData.forEach((user) => {
-      let array = user.likedVideos;
       if (user.name === name) {
-        array.forEach((video, i) => {
+        user.likedVideos.forEach((video, i) => {
           if (video === id) {
-            array.splice(i, 1);
+            user.likedVideos.splice(i, 1);
           }
         });
       }
     });
     this.saveUserDataToStorage();
   }
-    */
 }
 
 export let users = new User("userData");
