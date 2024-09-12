@@ -95,7 +95,8 @@ function renderPage() {
         popup[i].style.display = "none";
       }
 
-      movePopup(popup[i]);
+      movePopupX(popup[i]);
+      movePopupY(popup[i]);
 
       users.userData.forEach((user) => {
         if (user.name === activeProfile) {
@@ -134,7 +135,7 @@ function renderPage() {
     });
   });
 
-  function movePopup(popup) {
+  function movePopupX(popup) {
     const rect = popup.getBoundingClientRect();
     const elementX = rect.left;
     const elementWidth = rect.width;
@@ -142,6 +143,17 @@ function renderPage() {
 
     if (elementX + elementWidth > viewportWidth) {
       popup.style.right = `${0}px`;
+    }
+  }
+
+  function movePopupY(popup){
+    const rect = popup.getBoundingClientRect();
+    const elementY = rect.bottom;
+    const elementHeight = rect.height;
+    const viewportHeight = window.innerHeight;
+
+    if (elementY + elementHeight > viewportHeight) {
+      popup.style.bottom = `${45}px`;
     }
   }
 }

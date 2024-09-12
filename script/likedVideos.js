@@ -64,7 +64,7 @@ function renderPage() {
                   <p class='js-popup-watchLater-text'>Remove video from liked videos</p>
                 </div>
               </div>
-        </div>
+          </div>
         </div>
       </div>
         `;
@@ -112,10 +112,8 @@ function renderPage() {
 
   //remove video from liked
   popup.forEach(but=>{
-    but.addEventListener('click',()=>{
-      console.log('here');  
+    but.addEventListener('click',()=>{ 
       const videoId = but.dataset.videoId;
-      console.log(videoId);
       users.addToLikedVideos(activeProfile,videoId)
       videoLikes(likes,videoId,activeProfile)
       renderPage()

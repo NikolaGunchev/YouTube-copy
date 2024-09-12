@@ -55,8 +55,13 @@ function renderPage() {
           matchingVideo.views
         } views &middot; ${matchingVideo.date} ago</p>
           </div>
-          <div class="video-options">
-            <img src="pictures/icons/youtube-vertical-dots.svg">
+          <div class='video-options-box'>
+            <img src="pictures/icons/youtube-vertical-dots.svg" class="video-settings">
+              <div class="settings-popup" data-video-id='${matchingVideo.id}'>
+                <div class="popup-setting watch-later-option">
+                  <p class='js-popup-watchLater-text'>Remove video from watch later</p>
+                </div>
+              </div>
           </div>
         </div>
       </div>
@@ -84,5 +89,32 @@ function renderPage() {
   changeHeader(activeProfile, renderPage);
 
   searchBar();
+
+  //hide and show popup
+  let popup = document.querySelectorAll(".settings-popup");
+  document.querySelectorAll(".video-settings").forEach((setting, i) => {
+    setting.addEventListener("click", () => {
+      if (popup[i].style.display === "none" || popup[i].style.display === "") {
+        popup[i].style.display = "block";
+      } else {
+        popup[i].style.display = "none";
+      }
+
+      document.addEventListener("click", function (event) {
+        if (!popup[i].contains(event.target) && event.target !== setting) {
+          popup[i].style.display = "none";
+        }
+      });
+    });
+  });
+
+  //remove video from watch later
+  popup.forEach((but) => {
+    but.addEventListener("click", () => {
+      const videoId = but.dataset.videoId;
+      users.watchLaterButton(activeProfile, videoId);
+      renderPage();
+    });
+  });
 }
 renderPage();
