@@ -32,7 +32,7 @@ function renderPage() {
 
   videoHtml = `
     <div class="video">
-      <img src="${matchingVideo.thumbnail}" />
+      
     </div>
     <p class="video-title">
       ${matchingVideo.title}
@@ -100,7 +100,14 @@ function renderPage() {
             <a href="watch.html?videoId=${video.id}">
             <p>${video.title}</p>
             </a>
-              <img src="./pictures/icons/youtube-vertical-dots.svg" />
+            <div class='video-options-box'>
+            <img src="pictures/icons/youtube-vertical-dots.svg" class="video-settings">
+              <div class="settings-popup" data-video-id='${matchingVideo.id}'>
+                <div class="popup-setting watch-later-option">
+                  <p class='js-popup-watchLater-text'>Remove video from liked videos</p>
+                </div>
+              </div>
+            </div>
             </div>
             <div class="side-video-info">
               <p>${video.channel}</p>
@@ -194,5 +201,56 @@ function renderPage() {
         description.classList.add("expanded");
       }
     });
+
+   //Show and hide video settings button
+   let popup = document.querySelectorAll(".settings-popup");
+   let settingsBox = document.querySelectorAll(".video-settings");
+   let optionText = document.querySelectorAll(".js-popup-watchLater-text");
+   settingsBox.forEach((but, i) => {
+     but.addEventListener("click", () => {
+       const videoId = but.dataset.videoId;
+       let videoFound = false;
+       if (popup[i].style.display === "none" || popup[i].style.display === "") {
+         popup[i].style.display = "block";
+       } else {
+         popup[i].style.display = "none";
+       }
+ 
+       users.userData.forEach((user) => {
+         if (user.name === activeProfile) {
+           user.watchLater.forEach((video) => {
+             if (video === videoId) {
+               videoFound = true;
+             }
+           });
+ 
+           if (videoFound) {
+             optionText[i].innerHTML = "Remove video from watch later list";
+           } else {
+             optionText[i].innerHTML = "Add video to watch later list";
+           }
+         }
+       });
+     });
+ 
+     //Hide video settings when clicking anywhere on the screen
+     document.addEventListener("click", function (event) {
+       // Check if the click is outside the popup
+       if (!popup[i].contains(event.target) && event.target !== but) {
+         popup[i].style.display = "none";
+       }
+     });
+   });
+ 
+   //Adding and removing videos from the watch later list
+   document.querySelectorAll(".watch-later-option").forEach((option, i) => {
+     option.addEventListener("click", () => {
+       let popup = document.querySelectorAll(".settings-popup");
+       const videoId = option.dataset.videoId;
+ 
+       users.watchLaterButton(activeProfile, videoId);
+       popup[i].style.display = "none";
+     });
+   });
 }
 renderPage();

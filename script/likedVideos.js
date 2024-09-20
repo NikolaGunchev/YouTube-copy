@@ -60,7 +60,7 @@ function renderPage() {
           <div class='video-options-box'>
             <img src="pictures/icons/youtube-vertical-dots.svg" class="video-settings">
               <div class="settings-popup" data-video-id='${matchingVideo.id}'>
-                <div class="popup-setting watch-later-option">
+                <div class="popup-setting">
                   <p class='js-popup-watchLater-text'>Remove video from liked videos</p>
                 </div>
               </div>

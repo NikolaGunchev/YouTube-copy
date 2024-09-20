@@ -8,7 +8,7 @@
 .content-container {
   display: flex;
   flex-direction: column;
-  width: 75%;
+  width: 74%;
 }
 
 .videos-row {
@@ -90,6 +90,7 @@ border-radius: 15px;
   line-height: 22px; 
   max-height: 44px;
   width: calc(100% - 24px);
+  z-index: 50;
 }
 
 .side-video-info p{
@@ -323,3 +324,49 @@ border-radius: 15px;
   height: 100px;
 }
 
+.video-settings {
+  align-self: center;
+  cursor: pointer;
+  border-radius: 30px;
+  padding: 0px 5px 0px 5px;
+}
+.video-settings:hover {
+  background-color: rgb(219, 219, 219);
+}
+.video-settings:active {
+  background-color: rgb(202, 202, 202);
+}
+
+.video-options-box{
+  position: relative;
+  margin-top: 6px;
+  margin-bottom: 6px;
+}
+
+.settings-popup{
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  width: 350px;
+  border-radius: 10px;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.15);
+  background-color: white;
+  z-index: 100;
+  display: none;
+}
+
+.popup-setting{
+  display: flex;
+  padding: 10px;
+  font-size: 16px;
+  font-family: Roboto,Arial;
+  align-items: center;
+  cursor: pointer;
+  margin: 5px 0px 5px 0px;
+}
+.popup-setting:hover{
+  background-color: rgb(224, 224, 224);
+}
+.popup-setting:active{
+  background-color: rgb(202, 202, 202);
+}
