@@ -32,7 +32,14 @@ function renderPage() {
 
   videoHtml = `
     <div class="video">
-      
+      <iframe   
+        width="100%" 
+        height="100%" 
+        src="https://www.youtube.com/embed/${matchingVideo.videoLinkId}?autoplay=1&mute=0" 
+        frameborder="0" 
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+        allowfullscreen>
+      </iframe> 
     </div>
     <p class="video-title">
       ${matchingVideo.title}
@@ -97,18 +104,18 @@ function renderPage() {
         </a>
           <div class="side-video-content">
             <div class="side-video-title">
-            <a href="watch.html?videoId=${video.id}">
-            <p>${video.title}</p>
-            </a>
-            <div class='video-options-box'>
-            <img src="pictures/icons/youtube-vertical-dots.svg" class="video-settings">
-              <div class="settings-popup" data-video-id='${matchingVideo.id}'>
-                <div class="popup-setting watch-later-option">
-                  <p class='js-popup-watchLater-text'>Remove video from liked videos</p>
-                </div>
+              <a href="watch.html?videoId=${video.id}">
+              <p>${video.title}</p>
+              </a>
+              <div class='video-options-box'>
+                <img src="pictures/icons/youtube-vertical-dots.svg" class="video-settings" data-video-id='${video.id}'>
+                  <div class="settings-popup watch-later-option" data-video-id='${video.id}'>
+                    <div class="popup-setting">
+                      <p class='js-popup-watchLater-text'>Remove video from liked videos</p>
+                    </div>
+                  </div>
               </div>
-            </div>
-            </div>
+            </div>       
             <div class="side-video-info">
               <p>${video.channel}</p>
               <p>${video.views} views &#183; ${video.date} ago</p>
