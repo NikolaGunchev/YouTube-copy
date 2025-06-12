@@ -1,5 +1,5 @@
 # A copy of YouTube's main, video, and profile pages.
-First-ever project, made without the use of a libraries, backend, framework, or database.
+First-ever project, made without the use of libraries, backend, framework, or database.
 It was made to learn HTML, CSS, and a bit of JavaScript.
 
 There are several things to add, such as: 
